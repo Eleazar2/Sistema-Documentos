@@ -1,0 +1,53 @@
+[
+    {
+        "icon":"home",
+        "name":"Inicio",
+        "redirectTo": "/inicio"
+    },
+    {
+        "icon":"notifications-outline",
+        "name":"Notificaciones",
+        "redirectTo": "/notificacion"
+    },
+    {
+        "icon":"document-outline",
+        "name":"Generar Oficio",
+        "redirectTo": "/oficios"
+    },
+    {
+        "icon":"create-outline",
+        "name":"Lista de verificación",
+        "redirectTo": "/listverificacion"
+    },
+    {
+        "icon":"document-text-outline",
+        "name":"Programa de Manto. Preventivo",
+        "redirectTo": "/mantopreventivo"
+
+    },
+    {
+        "icon":"document-outline",
+        "name":"Solicitud de Manto. Correctivo",
+        "redirectTo": "/solicitud"
+    },
+    {
+        "icon":"document-text-outline",
+        "name":"Orden de Trabajo",
+        "redirectTo": "/ordentrabajo"
+    },
+    {
+        "icon":"folder-open-outline",
+        "name":"Documentos",
+        "redirectTo": "/documento"
+    },
+    {
+        "icon":"key-outline",
+        "name":"Cambiar contraseña",
+        "redirectTo": "/cambiarcontraseña"
+    },
+    {
+        "icon":"person-circle-outline",
+        "name":"Cerrar sesión",
+        "redirectTo": "/login"
+    }
+]

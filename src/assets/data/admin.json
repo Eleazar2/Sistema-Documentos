@@ -1,0 +1,32 @@
+[
+    {
+        "icon":"home",
+        "name":"Admin",
+        "redirectTo": "/admin"
+    },
+    {
+        "icon":"person-circle-outline",
+        "name":"User-Admin",
+        "redirectTo": "/principal"
+    },
+    {
+        "icon":"pencil-outline",
+        "name":"Departamentos",
+        "redirectTo": "/departamentos"
+    },
+    {
+        "icon":"person-outline",
+        "name":"Personal",
+        "redirectTo": "/personal"
+    },
+    {
+        "icon":"lock-closed-outline",
+        "name":"Cerrar sessión",
+        "redirectTo": "/personal"
+    },
+    {
+        "icon":"log-in-outline",
+        "name":"Recuperar contraseña",
+        "redirectTo": "/personal"
+    }
+]

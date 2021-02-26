@@ -1,0 +1,51 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="success">
+    <ion-title class="ion-text-center">Agregar Lista de Verificación</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+
+    <form [formGroup]="FormList">
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Jefe(a) de departamento: </ion-label>
+          <ion-input formControlName="depto_responsable"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Jefe(a) del area verificada: </ion-label>
+          <ion-input formControlName="area_verificada"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Fecha: </ion-label>
+          <ion-datetime formControlName="fecha_realizada" cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" placeholder="DD/MM/YYYY" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Espacio revisado: </ion-label>
+          <ion-input formControlName="espacio"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Hallazgo: </ion-label>
+          <ion-textarea formControlName="hallazgos" type="text" placeholder="Hallazgo"></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Atendido: </ion-label>
+          <ion-input formControlName="atendido" ></ion-input>
+        </ion-item>
+      </ion-list>
+      <br>
+     
+          
+          <ion-button type= "submit" color="success" expand="block" shape="round" (click)="Generar()" >Registrar</ion-button>
+  
+    </form>
+ 
+
+
+</ion-content>

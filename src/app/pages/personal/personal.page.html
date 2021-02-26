@@ -1,0 +1,70 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title>Personal</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu2()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="ModalPerson()">
+        <ion-icon slot="icon-only" name="person-add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar color="primary">
+    <ion-searchbar autocorrect="on" animated (ionChange)="buscarPersonal($event)" cancelButtonText="Custom Cancel"
+      placeholder="Buscar personal...">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+
+  <ion-list *ngIf="personal.length === 0">
+    <ion-item *ngFor="let i of [1,1,1,1,1,1,1,1,1,1]">
+      <ion-label>
+        <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
+
+  <ion-list #lista *ngIf="personal.length > 0">
+    <ion-item-sliding *ngFor="let p of personal | filtro: textoBuscar ">
+      <ion-item>
+        <ion-avatar slot="start">
+          <div class="avatar">
+            {{p.nombreP.substring(0,1).toUpperCase()}}
+          </div>
+        </ion-avatar>
+        <ion-label>
+          <p>{{p.nombre_depto}}</p>
+          <h1>{{p.nombreP}} {{p.apaterno}} {{p.amaterno}}</h1>
+          <p>{{p.rfc}}</p>
+          <p>{{p.correo}} {{p.telefono}} {{p.domicilio}}</p>
+
+        </ion-label>
+
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="success" (click)="editarP(p)">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="eliminarP(p.id)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+
+</ion-content>

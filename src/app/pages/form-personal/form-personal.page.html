@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{personal.id == 0 ?'Registrar':'Editar'}} personal</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="FormP">
+    <ion-list>
+      <ion-item>
+        <ion-label>RFC: </ion-label>
+        <ion-input type="text" [(ngModel)]="personal.rfc" formControlName="rfc" placeholder="RFC"></ion-input>
+      </ion-item>
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormP.get('rfc').errors && FormP.get('rfc').dirty">
+        <p class="msg-error" *ngIf="FormP.get('rfc').hasError('required')">Campo requerido !</p>
+      </ion-item>
+
+      <ion-item >
+        <ion-label>Nombre: </ion-label>
+        <ion-input type="text" [(ngModel)]="personal.nombreP" formControlName="nombreP" placeholder="Nombre"></ion-input>
+      </ion-item>
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormP.get('nombreP').errors && FormP.get('nombreP').dirty">
+        <p class="msg-error" *ngIf="FormP.get('nombreP').hasError('required')">Campo requerido !</p>
+        <p class="msg-error" *ngIf="FormP.get('nombreP').hasError('pattern')">Solo acepta letras !</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Apellido paterno: </ion-label>
+        <ion-input type="text" [(ngModel)]="personal.apaterno" formControlName="apaterno" placeholder="Apellido paterno"></ion-input>
+      </ion-item>
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormP.get('apaterno').errors && FormP.get('apaterno').dirty">
+        <p class="msg-error" ion-text *ngIf="FormP.get('apaterno').hasError('required')">Campo requerido ! </p>
+        <p class="msg-error" ion-text *ngIf="FormP.get('apaterno').hasError('pattern')">Solo acepta letras ! </p>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Apellido materno: </ion-label>
+        <ion-input type="text" [(ngModel)]="personal.amaterno" formControlName="amaterno" placeholder="Apellido materno"></ion-input>
+      </ion-item>
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormP.get('amaterno').errors && FormP.get('amaterno').dirty">
+        <p class="msg-error" ion-text *ngIf="FormP.get('amaterno').hasError('required')">Campo requerido !</p>
+        <p class="msg-error" ion-text *ngIf="FormP.get('amaterno').hasError('pattern')">Solo acepta letras !</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Departamentos: </ion-label>
+          <ion-select placeholder="Selecciona el Depto." formControlName="departamento" (ionChange)="countryChange($event)">
+            <ion-select-option *ngFor="let depto of select_depto" [value]="depto.id">{{depto.nombre_depto}}</ion-select-option>
+          </ion-select>
+      </ion-item>
+      
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormP.get('departamento').errors && FormP.get('departamento').dirty">
+        <p class="msg-error" ion-text *ngIf="FormP.get('departamento').hasError('required')">Campo requerido !</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Domilicio: </ion-label>
+        <ion-input type="text" [(ngModel)]="personal.domicilio" formControlName="domicilio" placeholder="Domicilio"></ion-input>
+      </ion-item>
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormP.get('domicilio').errors && FormP.get('domicilio').dirty">
+        <p class="msg-error" ion-text *ngIf="FormP.get('domicilio').hasError('required')">Campo requerido !</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Teléfono: </ion-label>
+        <ion-input type="tel" [(ngModel)]="personal.telefono" formControlName="telefono" placeholder="Telefono"></ion-input>
+      </ion-item>
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormP.get('telefono').errors && FormP.get('telefono').dirty">
+        <p class="msg-error" ion-text *ngIf="FormP.get('telefono').hasError('required')">Campo requerido !</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Correo: </ion-label>
+        <ion-input type="email" [(ngModel)]="personal.correo" formControlName="correo" placeholder="Email@"></ion-input>
+      </ion-item>
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormP.get('correo').errors && FormP.get('correo').dirty">
+        <p class="msg-error" ion-text *ngIf="FormP.get('correo').hasError('required')">Campo requerido !</p>
+        <p class="msg-error" ion-text *ngIf="FormP.get('correo').hasError('email')">Ingresa un correo válido !</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Contraseña: </ion-label>
+        <ion-input type="password" [(ngModel)]="personal.password" formControlName="password" placeholder="password"></ion-input>
+      </ion-item>
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormP.get('password').errors && FormP.get('password').dirty">
+        <p class="msg-error" ion-text *ngIf="FormP.get('password').hasError('required')">Campo requerido !</p>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-button type="submit" color="primary" expand="block" (click)="Registar()" shape="round" [disabled]="!FormP.valid">
+      {{personal.id == 0 ? 'Registrar':'Actualizar'}}
+    </ion-button>
+    <!--<p class="info-registrar">Ya tienes cuenta <span routerLink='/login'>inicia sesión ?</span></p>-->
+  </form>
+
+</ion-content>

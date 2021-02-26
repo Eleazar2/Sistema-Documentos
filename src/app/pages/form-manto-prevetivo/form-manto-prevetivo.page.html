@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="success">
+    <ion-title class="ion-text-center">Registrar Manto. Preventivo</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <form [formGroup]="FormManto">
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Servicio: </ion-label>
+          <ion-input type="text" placeholder="Servicio" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Programado: </ion-label>
+          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"  placeholder="Fecha"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Realizado: </ion-label>
+          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"  placeholder="Fecha"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Reprogramado: </ion-label>
+          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"  placeholder="Fecha"></ion-datetime>
+        </ion-item>
+      </ion-list>
+    
+        <ion-button slot="end" color="success" expand="block" shape="round" (click)="Guardar()" >Guardar</ion-button>
+      
+    </form>
+
+
+</ion-content>

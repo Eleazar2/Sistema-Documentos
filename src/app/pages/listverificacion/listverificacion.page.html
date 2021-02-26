@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu1()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="ModalVerificacion()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Lista de Verificación</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-text color="default">
+          Jefe(a) del departamento de:
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <label></label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col>
+        <ion-text color="default">
+          Jefe(a) del area verificada:
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <label></label>
+      </ion-col>
+    </ion-row>
+
+    <ion-label class="ion-text-end">Fecha: </ion-label>
+  </ion-grid>
+
+
+  <ion-grid class="ion-text-center">
+
+
+    <ion-row class="header-row">
+
+      <ion-col>
+        <ion-text>Espacio Revisado</ion-text>
+      </ion-col>
+
+      <ion-col>
+        <ion-text>Hallazgo</ion-text>
+      </ion-col>
+
+      <ion-col>
+        <ion-text>Atendido</ion-text>
+        <ion-row>
+          <ion-col>
+            Sí
+          </ion-col>
+          <ion-col>
+            No
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col *ngFor="let item of [1,1,1,1,1,1,1,1,1]">
+        <ion-text>
+          Departamento de Ingenerias
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    
+
+
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        Depto. de Recursos Materiales y Servicios y/o Mantenimiento de Equipo:
+      </ion-col>
+      <ion-col>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Jefe(a) del Área Verificada:
+      </ion-col>
+      <ion-col>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

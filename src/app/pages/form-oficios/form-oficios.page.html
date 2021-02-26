@@ -1,0 +1,65 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Nuevo Oficio</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div>
+    <form [formGroup]="FormOf">
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Número:</ion-label>
+          <ion-input type="text" placeholder="Numero"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Nombre:</ion-label>
+          <ion-input type="text" placeholder="Nombre documento"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Fecha:</ion-label>
+          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" placeholder="DD/MM/YYYY" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Oficio:</ion-label>
+          <ion-input type="text" placeholder="CC/0019/2020" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Asunto:</ion-label>
+          <ion-input type="text" placeholder="Asunto" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Nombre a quien va dirigido:</ion-label>
+          <ion-input type="text" placeholder="A quien va dirigido"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Área a donde va dirigido:</ion-label>
+          <ion-input type="text" placeholder="Área dirigido "></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Contenido:</ion-label>
+          <ion-textarea type="text" placeholder="Contenido"></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Firma del remitente:</ion-label>
+          <ion-thumbnail slot="end">
+            <img src="">
+          </ion-thumbnail>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Área del remitente:</ion-label>
+          <ion-input type="text" placeholder="Área"></ion-input>
+        </ion-item>
+      </ion-list>
+    
+        <ion-button slot="end" color="success" expand="block" shape="round" (click)="Generar()" >Generar</ion-button>
+      
+    </form>
+  </div>
+</ion-content>

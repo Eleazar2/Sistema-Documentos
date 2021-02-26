@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">{{useradmin.id == 0 ?'Registrar':'Editar'}} User-Admin</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="FormAdmin">
+    <ion-list>
+    
+      <ion-item >
+        <ion-label position="stacked">Nombre: </ion-label>
+        <ion-input type="text" [(ngModel)]="useradmin.nombre" formControlName="nombre" placeholder="Nombre"></ion-input>
+      </ion-item>
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormAdmin.get('nombre').errors && FormAdmin.get('nombre').dirty">
+        <p class="msg-error" ion-text *ngIf="FormAdmin.get('nombre').hasError('required')">Campo requerido !</p>
+        <p class="msg-error" ion-text *ngIf="FormAdmin.get('nombre').hasError('pattern')">Solo acepta letras !</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Apellido paterno: </ion-label>
+        <ion-input type="text" [(ngModel)]="useradmin.apaterno" formControlName="apaterno" placeholder="Apellido paterno"></ion-input>
+      </ion-item>
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormAdmin.get('apaterno').errors && FormAdmin.get('apaterno').dirty">
+        <p class="msg-error" ion-text *ngIf="FormAdmin.get('apaterno').hasError('required')">Campo requerido !</p>
+        <p class="msg-error" ion-text *ngIf="FormAdmin.get('apaterno').hasError('pattern')">Solo acepta letras !</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Apellido materno: </ion-label>
+        <ion-input type="text" [(ngModel)]="useradmin.amaterno" formControlName="amaterno" placeholder="Apellido materno"></ion-input>
+      </ion-item>
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormAdmin.get('amaterno').errors && FormAdmin.get('amaterno').dirty">
+        <p class="msg-error" ion-text *ngIf="FormAdmin.get('amaterno').hasError('required')">Campo requerido !</p>
+        <p class="msg-error" ion-text *ngIf="FormAdmin.get('amaterno').hasError('pattern')">Solo acepta letras !</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Domilicio: </ion-label>
+        <ion-input type="text" [(ngModel)]="useradmin.domicilio" formControlName="domicilio" placeholder="Domicilio"></ion-input>
+      </ion-item>
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormAdmin.get('domicilio').errors && FormAdmin.get('domicilio').dirty">
+        <p class="msg-error" ion-text *ngIf="FormAdmin.get('domicilio').hasError('required')">Campo requerido !</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Teléfono: </ion-label>
+        <ion-input type="tel" [(ngModel)]="useradmin.telefono" formControlName="telefono" placeholder="Telefono"></ion-input>
+      </ion-item>
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormAdmin.get('telefono').errors && FormAdmin.get('telefono').dirty">
+        <p class="msg-error" ion-text *ngIf="FormAdmin.get('telefono').hasError('required')">Campo requerido !</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Correo: </ion-label>
+        <ion-input type="email" [(ngModel)]="useradmin.correo" formControlName="correo" placeholder="Email@.com"></ion-input>
+      </ion-item>
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormAdmin.get('correo').errors && FormAdmin.get('correo').dirty">
+        <p class="msg-error" ion-text *ngIf="FormAdmin.get('correo').hasError('required')">Campo requerido !</p>
+        <p class="msg-error" ion-text *ngIf="FormAdmin.get('correo').hasError('email')">Ingresa un correo válido !</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Contraseña: </ion-label>
+        <ion-input type="password" [(ngModel)]="useradmin.password" formControlName="password" placeholder="password"></ion-input>
+      </ion-item>
+      <!--Mensaje error-->
+      <ion-item *ngIf="FormAdmin.get('password').errors && FormAdmin.get('password').dirty">
+        <p class="msg-error" ion-text *ngIf="FormAdmin.get('password').hasError('required')">Campo requerido !</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-button type="submit" color="primary" expand="block" (click)="Registrar()" shape="round" [disabled]="!FormAdmin.valid">
+      {{useradmin.id == 0 ? 'Registrar': 'Actualizar'}}
+    </ion-button>
+    <!--<p class="info-registrar">Ya tienes cuenta <span routerLink='/login'>inicia sesión ?</span></p>-->
+  </form>
+
+</ion-content>

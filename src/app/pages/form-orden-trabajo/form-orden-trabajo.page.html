@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title class="ion-text-center">Orden de Trabajo</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <form [formGroup]="FormOrdenT">
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Número de control: </ion-label>
+          <ion-input type="text" placeholder="Número de control"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Mantenimiento: </ion-label>
+          <ion-select>
+            <ion-select-option>Interno</ion-select-option>
+            <ion-select-option>Externo</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Tipo de servicio: </ion-label>
+          <ion-input type="text" placeholder="Tipo des servicio" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Asignado a: </ion-label>
+          <ion-input type="text" placeholder="Asignado a"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Fecha de realización: </ion-label>
+          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"  placeholder="Fecha"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Trabajo realizado: </ion-label>
+          <ion-input type="text" placeholder="Trabajo realizado"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Nombre quien verifica y libera: </ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Fecha y Firma de quien verifica: </ion-label>
+          <ion-button>Frimar</ion-button>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Aprobado por: </ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Fecha y Firma de quien verifica: </ion-label>
+          <ion-button>Frimar</ion-button>
+        </ion-item>
+      </ion-list>
+  
+        <ion-button slot="end" color="success" expand="block" shape="round" (click)="Generar()" >Generar</ion-button>
+  
+    </form>
+  
+
+</ion-content>

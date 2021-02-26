@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenus()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Administrador</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <app-opcion></app-opcion>
+
+  <form [formGroup]="Formlogin">
+    <ion-card class="ion-padding">
+      <ion-card-header class="ion-padding">
+        <ion-card-title class="ion-text-center">Admin</ion-card-title>
+        <ion-img class="logo-tec" src="../assets/img/logotectlaxiaco.png" style="height: auto; max-width: 23vh;" alt="">
+        </ion-img>
+        <ion-card-subtitle class="ion-text-center">INSTITUTO TECNOLOGICO DE TLAXIACO</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content class="ion-padding">
+        <ion-item>
+          <ion-label>Correo: </ion-label>
+          <ion-input type="email" [(ngModel)]="datos.correo" formControlName="correo" placeholder="ejemplo@gmail.com"></ion-input>
+        </ion-item>
+        <!--Mensaje error-->
+        <ion-item *ngIf="Formlogin.get('correo').errors && Formlogin.get('correo').dirty">
+          <p color="danger" ion-text *ngIf="Formlogin.get('correo').hasError('required')">campo requerido !</p>
+        </ion-item>
+        <ion-item>
+          <ion-label>Contraseña: </ion-label>
+          <ion-input type="password" [(ngModel)]="datos.password" formControlName="password" placeholder="Password"></ion-input>
+        </ion-item>
+        <!--Mensaje error-->
+        <ion-item *ngIf="Formlogin.get('password').errors && Formlogin.get('password').dirty">
+          <p color="danger" ion-text *ngIf="Formlogin.get('password').hasError('required')">campo requerido !</p>
+        </ion-item>
+      </ion-card-content>
+      <ion-button (click)="iniciarSesion()" expand="block" shape="round" [disabled]="!Formlogin.valid">
+        Iniciar Sesión
+      </ion-button>
+      <!--<p class="info-login">No tienes una cuenta <span routerLink='/resgistrar'>registrate ?</span></p>-->
+    </ion-card>
+  </form>
+
+
+
+
+</ion-content>

@@ -1,0 +1,137 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu1()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Manto. Preventivo</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="abrirModal()">
+        <ion-icon slot="icon-only" name="add" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+
+ 
+<hr>
+<ion-grid>
+    <ion-list>
+    <ion-row>
+      <ion-col >
+        <ion-item>
+          <ion-label>Semestre:</ion-label>
+          <ion-select placeholder="Semestre" class="ion-text-justify">
+            <ion-select-option value="Ene-jun">Ene-Jun</ion-select-option>
+            <ion-select-option value="Agos-dic ">Agos-Dic</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label>Año:</ion-label>
+          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="YYYY" placeholder="Año"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-grid>
+
+<ion-grid >
+  <ion-row class="header-row">
+      <ion-col>
+        <ion-text>No.</ion-text>
+      </ion-col>
+
+      <ion-col >
+        <ion-text>Servicio</ion-text>
+      </ion-col>
+
+      <ion-col >
+        <ion-text>Tipo</ion-text>
+      </ion-col>
+
+      <ion-col >
+        <ion-text>Mantenimiento</ion-text>
+      </ion-col>
+      
+      <ion-col >
+        <ion-text>Fecha</ion-text>
+      </ion-col>
+  </ion-row>
+  <ion-row *ngFor="let item of [1,1,1,1,1,1,1]">
+    <ion-col>
+      <ion-text>1</ion-text>
+    </ion-col>
+
+    <ion-col >
+      <ion-text>Impre</ion-text>
+    </ion-col>
+
+    <ion-col >
+      <ion-text>I</ion-text>
+    </ion-col>
+
+    <ion-col >
+      <ion-text>Realizado</ion-text>
+    </ion-col>
+    
+    <ion-col >
+      <ion-text>23/enero/20</ion-text>
+    </ion-col>
+</ion-row>
+
+</ion-grid>
+
+
+<ion-grid>
+
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-item>
+          <ion-label>FECHA DE ELABORACIÓN:</ion-label>
+          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre" placeholder="Fecha"></ion-datetime>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+    <ion-col>
+      <ion-list>
+        <ion-item>
+          <ion-label>ELABORÓ:</ion-label>
+          <ion-button>Firmar</ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+    
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-item>
+          <ion-label>FECHA DE APROBACIÓN:</ion-label>
+          <ion-datetime cancelText="Cancelar" doneText="Aceptar"  displayFormat="DD/MMMM/YYYY" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre" placeholder="Fecha"></ion-datetime>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+
+    <ion-col>
+      <ion-list>
+        <ion-item>
+          <ion-label>APROBÓ:</ion-label>
+          <ion-button>Firmar</ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+</ion-content>

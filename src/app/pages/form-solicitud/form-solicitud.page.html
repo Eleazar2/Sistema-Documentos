@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="success">
+    <ion-title class="ion-text-center">Solicitud Mantenimiento Preventivo</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div>
+    <form [formGroup]="FormSolicitud">
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Solicitud dirigido:</ion-label>
+          <ion-select interface="popover" placeholder="Selecciona una opción">
+            <ion-select-option value="brown">Recursos Materiales y Servicios</ion-select-option>
+            <ion-select-option value="blonde">Mantenimiento de Equipo</ion-select-option>
+            <ion-select-option value="black">Centro de Cómputo</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Folio:</ion-label>
+          <ion-input type="text" placeholder="Folio"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Área del solicitante:</ion-label>
+          <ion-input type="text" placeholder="Área del solicitante"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Nombre y Firma del solicitante:</ion-label>
+          <ion-input type="text" placeholder="Nombre y Firma" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Fecha del Elaboración:</ion-label>
+          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" placeholder="DD/MM/YYYY" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Descripción del servicio o falla a reparar:</ion-label>
+          <ion-input type="text" placeholder="Descripción del servicio"></ion-input>
+        </ion-item>        
+      </ion-list>
+    
+        <ion-button slot="end" color="success" (click)="Generar()" >Generar</ion-button>
+  
+    </form>
+  </div>
+
+</ion-content>
