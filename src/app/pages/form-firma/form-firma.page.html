@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Generación de firma</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+  <form [formGroup]="formfirma">
+    <ion-list>
+      <ion-item>
+        <ion-label>RFC: </ion-label>
+        <ion-input type="text" [(ngModel)]="datofirma.rfc" formControlName="rfc" placeholder="RFC"></ion-input>
+      </ion-item>
+      <!--Validacion-->
+      <ion-item *ngIf="formfirma.get('rfc').errors && formfirma.get('rfc').dirty">
+        <p class="msg-error" ion-text *ngIf="formfirma.get('rfc').hasError('required')">Campo requerido !</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Nombre Completo: </ion-label>
+        <ion-input type="text" [(ngModel)]="datofirma.nombreC" formControlName="nombreC" placeholder="Nombre completo"></ion-input>
+      </ion-item>
+      <!--Validacion-->
+      <ion-item *ngIf="formfirma.get('nombreC').errors && formfirma.get('nombreC').dirty">
+        <p class="msg-error" ion-text *ngIf="formfirma.get('nombreC').hasError('required')">Campo requerido !</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Fecha: </ion-label>
+        <ion-datetime displayFormat="DD/MMM/YYYY" formControlName="fecha" [ngModel]="datofirma.fecha.toISOString()" cancelText="Cancelar" doneText="Aceptar" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre" (ionChange)="cambioFecha($event)"></ion-datetime>
+      </ion-item>
+      <!--Validacion-->
+      <ion-item *ngIf="formfirma.get('fecha').errors && formfirma.get('fecha').dirty">
+        <p class="msg-error" ion-text *ngIf="formfirma.get('fecha').hasError('required')">Campo requerido !</p>
+      </ion-item>
+      <ion-button (click)="generarFirma()" expand="block" shape="round" [disabled]="!formfirma.valid">
+        Generar firma
+      </ion-button>
+    </ion-list>
+  </form>
+
+</ion-content>

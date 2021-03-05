@@ -21,8 +21,44 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-list #lista >
+    <ion-item-sliding >
+      <ion-item>
+        <ion-label>
+        </ion-label>
+        <ion-button fill="clear" slot="end" (click)="onClick()">
+          <ion-icon slot="icon-only" name="arrow-down-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
 
-<div id="container">
+      <ion-item-options side="start">
+        <!--<ion-item-option color="secondary" (click)="desacrgar()">
+          <ion-icon slot="icon-only" name="arrow-down-circle-outline"></ion-icon>
+        </ion-item-option>-->
+        <ion-item-option color="primary" (click)="firmar()">
+          <ion-icon slot="icon-only" name="qr-code-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item-options side="end">
+        <ion-item-option color="success" (click)="editarOfi()">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="eliminarOfi()">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="warning" (click)="compartirOfi()">
+          <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
+</ion-content>
+
+<!--
+  <div id="container">
   <ion-list>
       <ion-list-header color="primary">
         <ion-label class="ion-text-center" size="2">N°.</ion-label>
@@ -39,7 +75,7 @@
               {{oficio.numero}}
             </ion-col>
             <ion-col class="ion-text-center" size="4">
-                {{oficio.nombre_ofic}}
+                {{oficio.nombre_o}}
             </ion-col>
             <ion-col class="ion-text-center" size="2">
               <ion-button color="danger" (click)="onEliminar()">
@@ -52,9 +88,9 @@
               </ion-button>
               <ion-button color="light" (click)="onEnviar()">
                 <ion-icon name="share-social-outline">
-                  <!--<ion-select placeholder="Selecciona el Depto." formControlName="departamento" (ionChange)="countryChange($event)">
+                  <ion-select placeholder="Selecciona el Depto." formControlName="departamento" (ionChange)="countryChange($event)">
                     <ion-select-option *ngFor="let depto of select_depto" [value]="depto.id">{{depto.nombre_depto}}</ion-select-option>
-                  </ion-select>-->
+                  </ion-select>
                 </ion-icon>
               </ion-button>
             </ion-col>
@@ -64,5 +100,4 @@
   </ion-list>
   
 </div>
-  
-</ion-content>
+-->

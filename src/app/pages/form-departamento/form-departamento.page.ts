@@ -16,8 +16,8 @@ export class FormDepartamentoPage implements OnInit {
   myForm: FormGroup;
 
   dato: Depto = {
-    id: 0,
-    nombre_depto: ''
+    id_d: 0,
+    nombred: ''
   }
 
   constructor(public dataService: DataService,
@@ -27,7 +27,7 @@ export class FormDepartamentoPage implements OnInit {
     private modalCtrl: ModalController) {
 
     this.myForm = this.fb.group({
-      nombre: ['', [Validators.required]]
+      nombred: ['', [Validators.required]]
     });
 
   }
@@ -39,7 +39,7 @@ export class FormDepartamentoPage implements OnInit {
 
   createDepto() {
     //console.log(this.usuario);
-    if (this.dato.id == 0) {
+    if (this.dato.id_d == 0) {
 
       this.dataService.postDepartamento(this.dato).subscribe(
         (res) => {
@@ -49,8 +49,8 @@ export class FormDepartamentoPage implements OnInit {
           //this.presentToast('Nuevo usuario registrado...');
         }, err => console.error(err));
 
-    } else if (this.dato.id >= 0) {
-      this.dataService.updateDepartamento(this.dato.id, this.dato).subscribe(res => {
+    } else if (this.dato.id_d >= 0) {
+      this.dataService.updateDepartamento(this.dato.id_d, this.dato).subscribe(res => {
         console.log(res);
         this.presentToast('Dato actualizado con exito..');
         this.modalCtrl.dismiss();

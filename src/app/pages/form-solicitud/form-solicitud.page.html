@@ -1,5 +1,5 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar color="success">
+  <ion-toolbar color="primary">
     <ion-title class="ion-text-center">Solicitud Mantenimiento Preventivo</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">
@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
 
   <div>
     <form [formGroup]="FormSolicitud">
@@ -32,20 +32,22 @@
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Nombre y Firma del solicitante:</ion-label>
-          <ion-input type="text" placeholder="Nombre y Firma" required></ion-input>
+          <ion-button (click)="onFirmar()"> Firma </ion-button>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Fecha del Elaboración:</ion-label>
-          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" placeholder="DD/MM/YYYY" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"></ion-datetime>
+          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" placeholder="DD/MM/YYYY"
+            monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre">
+          </ion-datetime>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Descripción del servicio o falla a reparar:</ion-label>
           <ion-input type="text" placeholder="Descripción del servicio"></ion-input>
-        </ion-item>        
+        </ion-item>
       </ion-list>
+
+      <ion-button slot="end" expand="block" shape="round" (click)="Generar()">Generar</ion-button>
     
-        <ion-button slot="end" color="success" (click)="Generar()" >Generar</ion-button>
-  
     </form>
   </div>
 

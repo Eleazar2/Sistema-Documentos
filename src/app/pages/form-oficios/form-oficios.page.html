@@ -11,55 +11,85 @@
 
 <ion-content class="ion-padding">
 
-  <div>
     <form [formGroup]="FormOf">
       <ion-list>
         <ion-item>
           <ion-label position="stacked">Número:</ion-label>
-          <ion-input type="text" placeholder="Numero"></ion-input>
+          <ion-input type="text" [(ngModel)]="datoficio.numero" formControlName="numero" placeholder="Numero"></ion-input>
         </ion-item>
+        <!--Mensaje error-->
+        <ion-item *ngIf="FormOf.get('numero').errors && FormOf.get('numero').dirty">
+          <p class="msg-error" *ngIf="FormOf.get('numero').hasError('required')">Campo requerido !</p>
+        </ion-item>
+        
         <ion-item>
           <ion-label position="stacked">Nombre:</ion-label>
-          <ion-input type="text" placeholder="Nombre documento"></ion-input>
+          <ion-input type="text" [(ngModel)]="datoficio.nombre_o" formControlName="nombre_o" placeholder="Nombre documento"></ion-input>
+        </ion-item>
+        <!--Mensaje error-->
+        <ion-item *ngIf="FormOf.get('nombre_o').errors && FormOf.get('nombre_o').dirty">
+          <p class="msg-error" *ngIf="FormOf.get('nombre_o').hasError('required')">Campo requerido !</p>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Fecha:</ion-label>
-          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" placeholder="DD/MM/YYYY" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"></ion-datetime>
+          <ion-datetime [(ngModel)]="datoficio.fecha" formControlName="fecha" cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" placeholder="D/M/Y" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"></ion-datetime>
+        </ion-item>
+        <!--Mensaje error-->
+        <ion-item *ngIf="FormOf.get('fecha').errors && FormOf.get('fecha').dirty">
+          <p class="msg-error" *ngIf="FormOf.get('fecha').hasError('required')">Campo requerido !</p>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Oficio:</ion-label>
-          <ion-input type="text" placeholder="CC/0019/2020" required></ion-input>
+          <ion-input type="text" [(ngModel)]="datoficio.oficio" formControlName="oficio" placeholder="CC/0019/2020" required></ion-input>
+        </ion-item>
+        <!--Mensaje error-->
+        <ion-item *ngIf="FormOf.get('oficio').errors && FormOf.get('oficio').dirty">
+          <p class="msg-error" *ngIf="FormOf.get('oficio').hasError('required')">Campo requerido !</p>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Asunto:</ion-label>
-          <ion-input type="text" placeholder="Asunto" required></ion-input>
+          <ion-input type="text" [(ngModel)]="datoficio.asunto" formControlName="asunto" placeholder="Asunto" required></ion-input>
+        </ion-item>
+        <!--Mensaje error-->
+        <ion-item *ngIf="FormOf.get('asunto').errors && FormOf.get('asunto').dirty">
+          <p class="msg-error" *ngIf="FormOf.get('asunto').hasError('required')">Campo requerido !</p>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Nombre a quien va dirigido:</ion-label>
-          <ion-input type="text" placeholder="A quien va dirigido"></ion-input>
+          <ion-input type="text" [(ngModel)]="datoficio.nombre_dirigido" formControlName="nombre_dirigido" placeholder="A quien va dirigido"></ion-input>
+        </ion-item>
+        <!--Mensaje error-->
+        <ion-item *ngIf="FormOf.get('nombre_dirigido').errors && FormOf.get('nombre_dirigido').dirty">
+          <p class="msg-error" *ngIf="FormOf.get('nombre_dirigido').hasError('required')">Campo requerido !</p>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Área a donde va dirigido:</ion-label>
-          <ion-input type="text" placeholder="Área dirigido "></ion-input>
+          <ion-input type="text" [(ngModel)]="datoficio.depto_dirigido" formControlName="depto_dirigido" placeholder="Área dirigido "></ion-input>
+        </ion-item>
+        <!--Mensaje error-->
+        <ion-item *ngIf="FormOf.get('depto_dirigido').errors && FormOf.get('depto_dirigido').dirty">
+          <p class="msg-error" *ngIf="FormOf.get('depto_dirigido').hasError('required')">Campo requerido !</p>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Contenido:</ion-label>
-          <ion-textarea type="text" placeholder="Contenido"></ion-textarea>
+          <ion-textarea type="text" [(ngModel)]="datoficio.cuerpo" formControlName="cuerpo" placeholder="Contenido"></ion-textarea>
         </ion-item>
-        <ion-item>
-          <ion-label position="stacked">Firma del remitente:</ion-label>
-          <ion-thumbnail slot="end">
-            <img src="">
-          </ion-thumbnail>
+        <!--Mensaje error-->
+        <ion-item *ngIf="FormOf.get('depto_dirigido').errors && FormOf.get('depto_dirigido').dirty">
+          <p class="msg-error" *ngIf="FormOf.get('depto_dirigido').hasError('required')">Campo requerido !</p>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Área del remitente:</ion-label>
-          <ion-input type="text" placeholder="Área"></ion-input>
+          <ion-input type="text" [(ngModel)]="datoficio.remitente_depto" formControlName="remitente_depto" placeholder="Área"></ion-input>
+        </ion-item>
+        <!--Mensaje error-->
+        <ion-item *ngIf="FormOf.get('remitente_depto').errors && FormOf.get('remitente_depto').dirty">
+          <p class="msg-error" *ngIf="FormOf.get('remitente_depto').hasError('required')">Campo requerido !</p>
         </ion-item>
       </ion-list>
     
-        <ion-button slot="end" color="success" expand="block" shape="round" (click)="Generar()" >Generar</ion-button>
+        <ion-button slot="end" color="primary" expand="block" shape="round" (click)="Generar()" [disabled]="!FormOf.valid">Generar</ion-button>
       
     </form>
-  </div>
+ 
 </ion-content>

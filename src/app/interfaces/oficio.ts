@@ -1,7 +1,7 @@
 export interface OficioI{
-    id?: number;
+    id_o?: number;
     numero?: number;
-    nombre_ofic?: string;
+    nombre_o?: string;
     fecha?: string;
     oficio?: string;
     asunto?: string;

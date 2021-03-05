@@ -17,7 +17,7 @@
   </ion-toolbar>
 
   <ion-toolbar color="primary">
-    <ion-searchbar autocorrect="on" animated cancelButtonText="Custom Cancel"
+    <ion-searchbar autocorrect="on" animated cancelButtonText="Custom Cancel" (ionChange)="buscarUseradmin($event)"
       placeholder="Buscar user-admin...">
     </ion-searchbar>
   </ion-toolbar>
@@ -27,7 +27,7 @@
 <ion-content class="ion-padding">
 
   <ion-list #lista>
-    <ion-item-sliding *ngFor="let user of useradmin">
+    <ion-item-sliding *ngFor="let user of useradmin | filtroua: textoBuscar ">
       <ion-item>
         <ion-avatar slot="start">
           <div class="avatar">

@@ -12,7 +12,7 @@ export class FiltroPipe implements PipeTransform {
       texto =  texto.toLowerCase();
  
       return  usuarios.filter( usuario =>{
-        return usuario.nombreP.toLowerCase().includes(texto)
+        return usuario.nombre_p.toLowerCase().includes(texto)
         || usuario.apaterno.toLowerCase().includes(texto)
         || usuario.amaterno.toLowerCase().includes(texto)
         || usuario.correo.toLowerCase().includes(texto)

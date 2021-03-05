@@ -1,7 +1,7 @@
 
 export interface Depto {
-    id:     number;
-    nombre_depto: string;
+    id_d:     number;
+    nombred: string;
 }
 
 

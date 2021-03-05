@@ -16,6 +16,7 @@ export class DepartamentosPage implements OnInit {
   @ViewChild('lista') lista: IonList;
 
   departamento: Depto[] = [];
+  textoBuscar = '';
 
   constructor(private http: HttpClient,
     private dataService: DataService,
@@ -36,6 +37,11 @@ export class DepartamentosPage implements OnInit {
     this.menu.enable(false, 'primerMenu');
     this.menu.enable(false, 'tercerMenu');
     this.menu.open('segundoMenu');
+  }
+
+  buscardepartamento(event){
+    const texto = event.target.value;
+    this.textoBuscar = texto;
   }
 
 

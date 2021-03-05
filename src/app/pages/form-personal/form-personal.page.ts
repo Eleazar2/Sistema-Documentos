@@ -16,9 +16,9 @@ export class FormPersonalPage implements OnInit {
   FormP: FormGroup;
   select_depto:Depto[]=[];
   personal: UserPersonal = {
-    id: 0,
+    id_p: 0,
     rfc: '',
-    nombreP: '',
+    nombre_p: '',
     apaterno: '',
     amaterno: '',
     departamento: 0,
@@ -35,7 +35,7 @@ export class FormPersonalPage implements OnInit {
     private dataServices: DataService) { 
       this.FormP = this.formbuilder.group({
         rfc: ['', [Validators.required]],
-        nombreP: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+        nombre_p: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
         apaterno: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
         amaterno: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
         departamento: ['', [Validators.required]],
@@ -63,13 +63,13 @@ export class FormPersonalPage implements OnInit {
   }
 
   Registar() {
-    if (this.personal.id == 0) {
+    if (this.personal.id_p == 0) {
       this.authServices.crearPersonal(this.personal).subscribe(res => {
         this.presentToast('Nuevo personal agregado con éxito...');
         this.modalCtrl.dismiss();
       }, err => console.error(err));
     } else {
-      this.authServices.updatePersonal(this.personal.id, this.personal).subscribe(res => {
+      this.authServices.updatePersonal(this.personal.id_p, this.personal).subscribe(res => {
         this.presentToast('Datos actualizados con éxito... ');
         this.modalCtrl.dismiss();
       }, err => console.error(err));

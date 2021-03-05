@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>{{personal.id == 0 ?'Registrar':'Editar'}} personal</ion-title>
+    <ion-title>{{personal.id_p == 0 ?'Registrar':'Editar'}} personal</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">
         <ion-icon name="log-out-outline"></ion-icon>
@@ -24,12 +24,12 @@
 
       <ion-item >
         <ion-label>Nombre: </ion-label>
-        <ion-input type="text" [(ngModel)]="personal.nombreP" formControlName="nombreP" placeholder="Nombre"></ion-input>
+        <ion-input type="text" [(ngModel)]="personal.nombre_p" formControlName="nombre_p" placeholder="Nombre"></ion-input>
       </ion-item>
       <!--Mensaje error-->
-      <ion-item *ngIf="FormP.get('nombreP').errors && FormP.get('nombreP').dirty">
-        <p class="msg-error" *ngIf="FormP.get('nombreP').hasError('required')">Campo requerido !</p>
-        <p class="msg-error" *ngIf="FormP.get('nombreP').hasError('pattern')">Solo acepta letras !</p>
+      <ion-item *ngIf="FormP.get('nombre_p').errors && FormP.get('nombre_p').dirty">
+        <p class="msg-error" *ngIf="FormP.get('nombre_p').hasError('required')">Campo requerido !</p>
+        <p class="msg-error" *ngIf="FormP.get('nombre_p').hasError('pattern')">Solo acepta letras !</p>
       </ion-item>
 
       <ion-item>
@@ -56,7 +56,7 @@
       <ion-item>
         <ion-label>Departamentos: </ion-label>
           <ion-select placeholder="Selecciona el Depto." formControlName="departamento" (ionChange)="countryChange($event)">
-            <ion-select-option *ngFor="let depto of select_depto" [value]="depto.id">{{depto.nombre_depto}}</ion-select-option>
+            <ion-select-option *ngFor="let depto of select_depto" [value]="depto.id_d">{{depto.nombred}}</ion-select-option>
           </ion-select>
       </ion-item>
       
@@ -105,7 +105,7 @@
     </ion-list>
 
     <ion-button type="submit" color="primary" expand="block" (click)="Registar()" shape="round" [disabled]="!FormP.valid">
-      {{personal.id == 0 ? 'Registrar':'Actualizar'}}
+      {{personal.id_p == 0 ? 'Registrar':'Actualizar'}}
     </ion-button>
     <!--<p class="info-registrar">Ya tienes cuenta <span routerLink='/login'>inicia sesión ?</span></p>-->
   </form>

@@ -14,6 +14,7 @@ export class PrincipalPage implements OnInit {
   @ViewChild('lista') lista: IonList;
 
   useradmin: UserAdmin[] = [];
+  textoBuscar = '';
 
   constructor(private authServices: AuthService, private menu: MenuController, private modalCtrl: ModalController,private alertCtrl: AlertController,private loadingCtrl: LoadingController) { }
 
@@ -29,6 +30,11 @@ export class PrincipalPage implements OnInit {
     this.menu.enable(true, 'segundoMenu');
     this.menu.enable(false, 'primerMenu');
     this.menu.open('segundoMenu');
+  }
+
+  buscarUseradmin(event){
+    const texto = event.target.value;
+    this.textoBuscar = texto;
   }
 
   async ModalAdmin() {

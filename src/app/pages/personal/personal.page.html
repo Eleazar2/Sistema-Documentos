@@ -40,12 +40,12 @@
       <ion-item>
         <ion-avatar slot="start">
           <div class="avatar">
-            {{p.nombreP.substring(0,1).toUpperCase()}}
+            {{p.nombre_p.substring(0,1).toUpperCase()}}
           </div>
         </ion-avatar>
         <ion-label>
-          <p>{{p.nombre_depto}}</p>
-          <h1>{{p.nombreP}} {{p.apaterno}} {{p.amaterno}}</h1>
+          <p>{{p.nombred}}</p>
+          <h1>{{p.nombre_p}} {{p.apaterno}} {{p.amaterno}}</h1>
           <p>{{p.rfc}}</p>
           <p>{{p.correo}} {{p.telefono}} {{p.domicilio}}</p>
 
@@ -57,7 +57,7 @@
         <ion-item-option color="success" (click)="editarP(p)">
           <ion-icon slot="icon-only" name="create-outline"></ion-icon>
         </ion-item-option>
-        <ion-item-option color="danger" (click)="eliminarP(p.id)">
+        <ion-item-option color="danger" (click)="eliminarP(p.id_p)">
           <ion-icon slot="icon-only" name="trash"></ion-icon>
         </ion-item-option>
       </ion-item-options>

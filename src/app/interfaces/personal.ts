@@ -1,7 +1,7 @@
 export interface UserPersonal {
-    id?:           number;
+    id_p?:         number;
     rfc?:          string;
-    nombreP?:       string;
+    nombre_p?:     string;
     apaterno?:     string;
     amaterno?:     string;
     departamento?: number;
@@ -9,6 +9,6 @@ export interface UserPersonal {
     correo?:       string;
     telefono?:     string;
     password?:     string;
-    nombre_depto?: string;
-    token?:       string;
+    nombred?:      string;
+    token?:        string;
 }

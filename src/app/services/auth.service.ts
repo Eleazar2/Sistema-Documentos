@@ -81,6 +81,9 @@ getAllUserAdmin() {
 getIdUserAdmin(id: UserAdmin) {
   return this.http.get(`${this.url}/admin/`+id);
 }
+getPerfil(){
+  return this.http.get<UserAdmin>(`${this.url}/admin/perfil`);
+}
 
 crearUserAdmin(dato: UserAdmin): Observable<UserAdmin> {
   return this.http.post<UserAdmin>(`${this.url}/admin/registrar`, dato);

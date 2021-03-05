@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { FormBuilder, FormGroup,Validators, } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, } from '@angular/forms';
+import { FormFirmaPage } from '../form-firma/form-firma.page';
 
 @Component({
   selector: 'app-form-solicitud',
@@ -9,25 +10,32 @@ import { FormBuilder, FormGroup,Validators, } from '@angular/forms';
 })
 export class FormSolicitudPage implements OnInit {
 
-  FormSolicitud:FormGroup;
+  FormSolicitud: FormGroup;
 
-  constructor(private modalCtrl:ModalController, private fb: FormBuilder) {
+  constructor(private modalCtrl: ModalController, private fb: FormBuilder) {
 
     this.FormSolicitud = this.fb.group({
 
     });
 
-   }
+  }
 
   ngOnInit() {
   }
 
-  closeModal(){
+  closeModal() {
     this.modalCtrl.dismiss();
   }
 
-  Generar(){
+  Generar() {
 
+  }
+
+  async onFirmar() {
+    const modal = await this.modalCtrl.create({
+      component: FormFirmaPage
+    });
+    modal.present();
   }
 
 }

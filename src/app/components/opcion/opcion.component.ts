@@ -13,7 +13,7 @@ export class OpcionComponent implements OnInit {
   ngOnInit() { }
 
   openPage(valor: string) {
-    //console.log("valor: " + valor);
+    console.log("valor: " + valor);
     this.router.navigate(['/' + valor]);
   }
 

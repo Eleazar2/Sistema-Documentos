@@ -17,17 +17,17 @@
   </ion-toolbar>
 
   <ion-toolbar color="primary">
-    <ion-searchbar text="buscar" cancelButtonText="Custom Cancel" placeholder="Buscar..."></ion-searchbar>
+    <ion-searchbar text="buscar" animated (ionChange)="buscardepartamento($event)" cancelButtonText="Custom Cancel" placeholder="Buscar departamento..."></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  <ion-list #lista>
-    <ion-item-sliding *ngFor="let depto of departamento" >
+  <ion-list #lista *ngIf="departamento.length > 0">
+    <ion-item-sliding *ngFor="let depto of departamento | filtrod: textoBuscar" >
       <ion-item>
         <ion-label>
-          <p>{{depto.id}}   {{depto.nombre_depto}}</p>
+          <p>{{depto.id_d}}   {{depto.nombred}}</p>
         </ion-label>
 
         
@@ -37,7 +37,7 @@
         <ion-item-option color="success" (click)="Editar(depto)">
           <ion-icon slot="icon-only" name="create-outline"></ion-icon>
         </ion-item-option>
-        <ion-item-option color="danger" (click)="Eliminar(depto.id)">
+        <ion-item-option color="danger" (click)="Eliminar(depto.id_d)">
           <ion-icon slot="icon-only" name="trash"></ion-icon>
         </ion-item-option>
       </ion-item-options>

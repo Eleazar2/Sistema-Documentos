@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController, ModalController } from '@ionic/angular';
+import { MenuController, ModalController, PopoverController } from '@ionic/angular';
 import { async } from '@angular/core/testing';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { PerfilComponent } from '../../components/perfil/perfil.component';
+
 
 
 @Component({
@@ -12,9 +14,12 @@ import { Router } from '@angular/router';
 })
 export class AdminPage implements OnInit {
 
-  constructor(private menu: MenuController, private modalCtrl: ModalController,private authServices: AuthService, private router: Router) { }
+  
+
+  constructor(private menu: MenuController, private modalCtrl: ModalController,private authServices: AuthService, private router: Router, private popoverCtrl: PopoverController) { }
 
   ngOnInit() {
+    
   }
 
 
@@ -25,9 +30,16 @@ export class AdminPage implements OnInit {
   }
 
 
-  onCerrarSesion(){
-    this.authServices.logout();
-    this.router.navigate(['login-admin'])
+ async onCerrarSesion(evento){
+
+    const popover = await  this.popoverCtrl.create({
+      component: PerfilComponent,
+      event: evento,
+      mode: 'ios'
+      });
+      await popover.present();
+    //this.authServices.logout();
+    //this.router.navigate(['login-admin'])
     
   }
 
