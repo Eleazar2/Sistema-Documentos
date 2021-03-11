@@ -106,6 +106,38 @@ const routes: Routes = [
   {
     path: 'form-firma',
     loadChildren: () => import('./pages/form-firma/form-firma.module').then( m => m.FormFirmaPageModule)
+  },
+  {
+    path: 'lista',
+    loadChildren: () => import('./pages/lista/lista.module').then( m => m.ListaPageModule)
+  },
+  {
+    path: 'form-agregar-espacio',
+    loadChildren: () => import('./pages/form-agregar-espacio/form-agregar-espacio.module').then( m => m.FormAgregarEspacioPageModule)
+  },
+  {
+    path: 'reset-password',
+    loadChildren: () => import('./pages/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
+  },
+  {
+    path: 'change-password',
+    loadChildren: () => import('./pages/change-password/change-password.module').then( m => m.ChangePasswordPageModule)
+  },
+  {
+    path: 'recib-oficio',
+    loadChildren: () => import('./pages/recib-oficio/recib-oficio.module').then( m => m.RecibOficioPageModule)
+  },
+  {
+    path: 'recib-lista',
+    loadChildren: () => import('./pages/recib-lista/recib-lista.module').then( m => m.RecibListaPageModule)
+  },
+  {
+    path: 'recib-manto-prevent',
+    loadChildren: () => import('./pages/recib-manto-prevent/recib-manto-prevent.module').then( m => m.RecibMantoPreventPageModule)
+  },
+  {
+    path: 'recib-solicitud',
+    loadChildren: () => import('./pages/recib-solicitud/recib-solicitud.module').then( m => m.RecibSolicitudPageModule)
   }
 ];
 @NgModule({

@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
   @ViewChild('cerrar') cerrar: IonMenuToggle;
 
- 
+ opensub = false;
  
   //menu1: Observable<Componente[]>;
   //menu2: Observable<Componente[]>;

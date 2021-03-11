@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="primary">
-    <ion-title class="ion-text-center">Nuevo Oficio</ion-title>
+    <ion-title class="ion-text-center">{{datoficio.id_o == 0  ? 'Nuevo': 'Editar'}} Oficio</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">
         <ion-icon name="log-out-outline"></ion-icon>
@@ -88,7 +88,7 @@
         </ion-item>
       </ion-list>
     
-        <ion-button slot="end" color="primary" expand="block" shape="round" (click)="Generar()" [disabled]="!FormOf.valid">Generar</ion-button>
+        <ion-button slot="end" color="primary" expand="block" shape="round" (click)="Generar()" [disabled]="!FormOf.valid">{{datoficio.id_o == 0 ? 'Guardar':'Actualizar'}}</ion-button>
       
     </form>
  

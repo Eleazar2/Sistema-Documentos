@@ -1,0 +1,9 @@
+
+  <ion-list>
+      <ion-item *ngFor="let depto of departamento" (click)="Selecdepartamento(depto.id_d)">
+        <ion-label>
+          {{depto.nombred}}
+        </ion-label>
+      </ion-item>
+  </ion-list>
+

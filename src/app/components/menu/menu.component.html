@@ -10,54 +10,88 @@
           <img src="../../../../assets/img/logotectlaxiaco.png" alt="" />
         </ion-avatar>
       </ion-buttons>
-      
+
     </ion-toolbar>
   </ion-header>
 
   <ion-content class="ion-padding">
-    <ion-list>
-      <ion-menu-toggle>
-        <ion-item [routerLink]="['/inicio']" routerLinkActive="router-link-active" >
-          <ion-label color="primary" >Inicio</ion-label>
+
+  <ion-list>
+    <ion-menu-toggle>
+        <ion-item [routerLink]="['/inicio']" routerLinkActive="active">
+          <ion-label color="primary">Inicio</ion-label>
           <ion-icon color="primary" slot="start" name="home"></ion-icon>
         </ion-item>
-        <ion-item [routerLink]="['/notificacion']" routerLinkActive="router-link-active" >
-          <ion-label color="primary" >Notificaciones</ion-label>
-          <ion-icon color="primary" slot="start" name="notifications-outline"></ion-icon>
+    </ion-menu-toggle>
+  </ion-list>
+
+    <ion-item (click)="opensub = !opensub" detail="false" routerLinkActive="active">
+      <ion-icon color="primary" class="ion-badge" slot="start" name="notifications-outline"></ion-icon>
+      <ion-label color="primary">Recibido</ion-label>
+      <ion-badge slot="end" color="danger" mode="ios">1</ion-badge>
+      <ion-icon color="primary" slot="end" name="arrow-forward" *ngIf="!opensub"></ion-icon>
+      <ion-icon color="primary" slot="end" name="arrow-down" *ngIf="opensub"></ion-icon>
+    </ion-item>
+
+    <ion-list *ngIf="opensub">
+      <ion-menu-toggle>
+        <ion-item [routerLink]="['/recib-oficio']">
+          <ion-icon slot="start" color="primary" name="document-sharp"></ion-icon>
+          <ion-label color="primary">Oficio recibido</ion-label>
         </ion-item>
-        <ion-item [routerLink]="['/oficios']" routerLinkActive="router-link-active" >
-          <ion-label color="primary" >Generar oficio</ion-label>
+        <ion-item [routerLink]="['/recib-lista']">
+          <ion-icon color="primary" slot="start" name="create-sharp"></ion-icon>
+          <ion-label color="primary">Lista de verificacion recibido</ion-label>
+        </ion-item>
+        <ion-item [routerLink]="['/recib-manto-prevent']">
+          <ion-icon color="primary" slot="start" name="document-text-sharp"></ion-icon>
+          <ion-label color="primary">Manto. Preventivo recibido</ion-label>
+        </ion-item>
+        <ion-item [routerLink]="['/recib-solicitud']">
+          <ion-icon slot="start" color="primary" name="document-sharp"></ion-icon>
+          <ion-label color="primary">Solicitud recibido</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+
+    <ion-list>
+      <ion-menu-toggle>
+        <ion-item [routerLink]="['/oficios']" routerLinkActive="active">
+          <ion-label color="primary">Generar oficio</ion-label>
           <ion-icon color="primary" slot="start" name="document-outline"></ion-icon>
         </ion-item>
-        <ion-item [routerLink]="['/listverificacion']" routerLinkActive="router-link-active" > <!--Ocultar si Depto Computo y Materiales-->
-          <ion-label color="primary" >Lista de verificación</ion-label>
+        <ion-item [routerLink]="['/lista']" routerLinkActive="active">
+          <!--Ocultar si Depto Computo y Materiales-->
+          <ion-label color="primary">Lista de verificación</ion-label>
           <ion-icon color="primary" slot="start" name="create-outline"></ion-icon>
         </ion-item>
-        <ion-item [routerLink]="['/mantopreventivo']" routerLinkActive="router-link-active" > <!--Ocultar si Depto Computo y Materiales-->
-          <ion-label color="primary" >Programa de Mant. Preventivo</ion-label>
+        <ion-item [routerLink]="['/mantopreventivo']" routerLinkActive="active">
+          <!--Ocultar si Depto Computo y Materiales-->
+          <ion-label color="primary">Programa de Mant. Preventivo</ion-label>
           <ion-icon color="primary" slot="start" name="document-text-outline"></ion-icon>
         </ion-item>
-        <ion-item [routerLink]="['/solicitud']" routerLinkActive="router-link-active" >
-          <ion-label color="primary" >Solicitud de Manto. Correctivo</ion-label>
+        <ion-item [routerLink]="['/solicitud']" routerLinkActive="active">
+          <ion-label color="primary">Solicitud de Manto. Correctivo</ion-label>
           <ion-icon color="primary" slot="start" name="document-outline"></ion-icon>
         </ion-item>
-        <ion-item [routerLink]="['/ordentrabajo']" routerLinkActive="router-link-active" > <!--Ocultar si Depto Computo y Materiales-->
-          <ion-label color="primary" >Orden de Trabajo</ion-label>
+        <ion-item [routerLink]="['/ordentrabajo']" routerLinkActive="active">
+          <!--Ocultar si Depto Computo y Materiales-->
+          <ion-label color="primary">Orden de Trabajo</ion-label>
           <ion-icon color="primary" slot="start" name="document-text-outline"></ion-icon>
         </ion-item>
-        <ion-item [routerLink]="['/documento']" routerLinkActive="router-link-active" >
-          <ion-label color="primary" >Documentos</ion-label>
+        <ion-item [routerLink]="['/documento']" routerLinkActive="active">
+          <ion-label color="primary">Documentos</ion-label>
           <ion-icon color="primary" slot="start" name="folder-open-outline"></ion-icon>
         </ion-item>
-        <ion-item [routerLink]="['/cambiarcontraseña']" routerLinkActive="router-link-active" >
-          <ion-label color="primary" >Cambiar contraseña</ion-label>
+        <ion-item [routerLink]="['/change-password']" routerLinkActive="active">
+          <ion-label color="primary">Cambiar contraseña</ion-label>
           <ion-icon color="primary" slot="start" name="key-outline"></ion-icon>
         </ion-item>
-        <ion-item [routerLink]="['/login']" routerLinkActive="router-link-active" (click)="CerrarSesion1()" >
-          <ion-label color="primary" >Cerrar sesión</ion-label>
+        <ion-item [routerLink]="['/login']" routerLinkActive="active" (click)="CerrarSesion1()">
+          <ion-label color="primary">Cerrar sesión</ion-label>
           <ion-icon color="primary" slot="start" name="person-circle-outline"></ion-icon>
         </ion-item>
-         <!--
+        <!--
       <ion-menu-toggle *ngFor="let c of menu1 | async" >
         <ion-item [routerLink]="c.redirectTo" >
           <ion-icon color="primary" slot="start" [name]="c.icon" ></ion-icon>
@@ -84,7 +118,7 @@
           <img src="../../../../assets/img/logotectlaxiaco.png" alt="" />
         </ion-avatar>
       </ion-buttons>
-  
+
     </ion-toolbar>
   </ion-header>
 
@@ -92,29 +126,29 @@
 
     <ion-list>
       <ion-menu-toggle>
-        <ion-item [routerLink]="['/admin']" routerLinkActive="router-link-active" >
-          <ion-label color="primary" >Admin</ion-label>
-          <ion-icon color="primary"  slot="start" name="home"></ion-icon>
+        <ion-item [routerLink]="['/admin']" routerLinkActive="router-link-active">
+          <ion-label color="primary">Admin</ion-label>
+          <ion-icon color="primary" slot="start" name="home"></ion-icon>
         </ion-item>
-        <ion-item [routerLink]="['/departamentos']" routerLinkActive="router-link-active" >
-          <ion-label color="primary" >Departamentos</ion-label>
-          <ion-icon color="primary"  slot="start" name="pencil-outline"></ion-icon>
+        <ion-item [routerLink]="['/departamentos']" routerLinkActive="router-link-active">
+          <ion-label color="primary">Departamentos</ion-label>
+          <ion-icon color="primary" slot="start" name="pencil-outline"></ion-icon>
         </ion-item>
-        <ion-item [routerLink]="['/principal']" routerLinkActive="router-link-active" >
-          <ion-label color="primary" >User-Admin</ion-label>
-          <ion-icon color="primary"  slot="start" name="person-circle-outline"></ion-icon>
+        <ion-item [routerLink]="['/principal']" routerLinkActive="router-link-active">
+          <ion-label color="primary">User-Admin</ion-label>
+          <ion-icon color="primary" slot="start" name="person-circle-outline"></ion-icon>
         </ion-item>
-        <ion-item [routerLink]="['/personal']" routerLinkActive="router-link-active" >
-          <ion-label color="primary" >Personal</ion-label>
-          <ion-icon color="primary"  slot="start" name="person-outline"></ion-icon>
+        <ion-item [routerLink]="['/personal']" routerLinkActive="router-link-active">
+          <ion-label color="primary">Personal</ion-label>
+          <ion-icon color="primary" slot="start" name="person-outline"></ion-icon>
         </ion-item>
-        <ion-item [routerLink]="['/personal']" routerLinkActive="router-link-active" >
-          <ion-label color="primary" >Recuperar contraseña</ion-label>
-          <ion-icon color="primary"  slot="start" name="log-in-outline"></ion-icon>
+        <ion-item [routerLink]="['/reset-password']" routerLinkActive="router-link-active">
+          <ion-label color="primary">Recuperar contraseña</ion-label>
+          <ion-icon color="primary" slot="start" name="log-in-outline"></ion-icon>
         </ion-item>
         <ion-item [routerLink]="['/login']" routerLinkActive="router-link-active" (click)="CerrarSesion2()">
-          <ion-label color="primary" >Cerrar sessión</ion-label>
-          <ion-icon color="primary"  slot="start" name="lock-closed-outline"></ion-icon>
+          <ion-label color="primary">Cerrar sessión</ion-label>
+          <ion-icon color="primary" slot="start" name="lock-closed-outline"></ion-icon>
         </ion-item>
       </ion-menu-toggle>
       <!--
@@ -155,57 +189,3 @@
 </ion-menu>
 -->
 
-
-<!--
-  {
-        "icon":"home",
-        "name":"Inicio",
-        "redirectTo": "/inicio"
-    },
-    {
-        "icon":"notifications-outline",
-        "name":"Notificaciones",
-        "redirectTo": "/notificacion"
-    },
-    {
-        "icon":"document-outline",
-        "name":"Generar Oficio",
-        "redirectTo": "/oficios"
-    },
-    {
-        "icon":"create-outline",
-        "name":"Lista de verificación",
-        "redirectTo": "/listverificacion"
-    },
-    {
-        "icon":"document-text-outline",
-        "name":"Programa de Manto. Preventivo",
-        "redirectTo": "/mantopreventivo"
-
-    },
-    {
-        "icon":"document-outline",
-        "name":"Solicitud de Manto. Correctivo",
-        "redirectTo": "/solicitud"
-    },
-    {
-        "icon":"document-text-outline",
-        "name":"Orden de Trabajo",
-        "redirectTo": "/ordentrabajo"
-    },
-    {
-        "icon":"folder-open-outline",
-        "name":"Documentos",
-        "redirectTo": "/documento"
-    },
-    {
-        "icon":"key-outline",
-        "name":"Cambiar contraseña",
-        "redirectTo": "/cambiarcontraseña"
-    },
-    {
-        "icon":"person-circle-outline",
-        "name":"Cerrar sesión",
-        "redirectTo": "/login"
-    }
--->

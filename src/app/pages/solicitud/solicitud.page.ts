@@ -31,4 +31,20 @@ export class SolicitudPage implements OnInit {
     modal.present();
   }
 
+  DescargarPDF(){
+
+  }
+firmar(){
+
+}
+editarLista(){
+
+}
+eliminarLista(){
+
+}
+compartirLista(){
+  
+}
+
 }

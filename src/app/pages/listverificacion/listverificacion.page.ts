@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, MenuController } from '@ionic/angular';
 import { FormListverificacionPage } from '../form-listverificacion/form-listverificacion.page';
+import { FormAgregarEspacioPage } from '../form-agregar-espacio/form-agregar-espacio.page';
 
 @Component({
   selector: 'app-listverificacion',
@@ -25,7 +26,7 @@ export class ListverificacionPage implements OnInit {
 
  async ModalVerificacion(){
     const modal = await this.modalCtrl.create({
-      component: FormListverificacionPage
+      component: FormAgregarEspacioPage
     });
     modal.present();
   }

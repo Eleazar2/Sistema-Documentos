@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-listverificacion',
@@ -13,17 +14,14 @@ export class FormListverificacionPage implements OnInit {
 
 
   constructor(private modalCtrl:ModalController,
-              private fb: FormBuilder
+              private fb: FormBuilder,
+              private router: Router
               ) {
                 this.FormList = this.fb.group({
+                  nombre_lf:['',[Validators.required]],
                   depto_responsable:['',[Validators.required]],
                   area_verificada:['',[Validators.required]],
                   fecha_realizada:['',[Validators.required]],
-                  espacio:['',[Validators.required]],
-                  hallazgos:['',[Validators.required]],
-                  atendido:['',[Validators.required]],
-                  firma:['',[Validators.required]],
-                  estado:['',[Validators.required]]
                 })
 
   }
@@ -35,7 +33,8 @@ export class FormListverificacionPage implements OnInit {
     this.modalCtrl.dismiss();
   }
   Generar(){
-
+    this.router.navigate(['listverificacion']);
+    this.modalCtrl.dismiss();
   }
 
 

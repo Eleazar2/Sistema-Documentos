@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { OpcionComponent } from './opcion/opcion.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PerfilComponent } from './perfil/perfil.component';
+import { CompartirdocComponent } from './compartirdoc/compartirdoc.component';
 
 
 
@@ -14,12 +15,14 @@ import { PerfilComponent } from './perfil/perfil.component';
   declarations: [HeaderComponent,
                   MenuComponent,
                   OpcionComponent,
-                  PerfilComponent
+                  PerfilComponent,
+                  CompartirdocComponent
   ],
   exports: [HeaderComponent,
             MenuComponent,
             OpcionComponent,
-            PerfilComponent
+            PerfilComponent,
+            CompartirdocComponent
   ],
   imports: [
     CommonModule,

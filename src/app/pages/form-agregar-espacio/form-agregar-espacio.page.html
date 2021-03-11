@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Agregar espacio revisado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="agregarespacio">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Espacio revisado: </ion-label>
+        <ion-input formControlName="espacio"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Hallazgo: </ion-label>
+        <ion-textarea formControlName="hallazgo" type="text" placeholder="Hallazgo"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Atendido: </ion-label>
+            <ion-select formControlName="atendido" placeholder="Select" (click)="selectClick($event)">
+              <ion-select-option value="SI">SI</ion-select-option>
+              <ion-select-option value="NO">NO</ion-select-option> 
+            </ion-select>
+          
+      </ion-item>
+    </ion-list>
+    <br>
+        <ion-button type= "submit" color="primary" expand="block" shape="round" (click)="Generar()" >Guardar</ion-button>
+
+  </form>
+</ion-content>

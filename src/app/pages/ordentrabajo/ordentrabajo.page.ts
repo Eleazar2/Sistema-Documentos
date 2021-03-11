@@ -28,4 +28,20 @@ export class OrdentrabajoPage implements OnInit {
     modal.present();
   }
 
+  DescargarPDF(){
+    
+  }
+firmar(){
+  
+}
+editarLista(){
+  
+}
+eliminarLista(){
+  
+}
+compartirLista(){
+  
+}
+
 }

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Oficio recibido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h2 class="ion-text-center">Notificaciones Recibidas</h2>
+  <ion-grid class="ion-margin">
+   <ion-row>
+     <ion-col>No.</ion-col>
+     <ion-col>Documento</ion-col>
+     <ion-col>Departamento</ion-col>
+     <ion-col>Responsable</ion-col>
+     <ion-col>Opciones</ion-col>
+   </ion-row>
+   <ion-row *ngFor="let oficio of listarenvlista; index as i">
+     <ion-col>{{ i + 1 }}</ion-col>
+     <ion-col>{{ oficio.nombre_o }}</ion-col>
+     <ion-col>{{ oficio.nombred }}</ion-col>
+     <ion-col>{{ oficio.nombre_p }}{{oficio.apaterno}}{{oficio.amaterno}}</ion-col>
+     <ion-col>
+       <ion-button (click)="onFirmar()">
+         <ion-icon name="qr-code-outline"></ion-icon>
+       </ion-button>
+       <ion-button (click)="onDescargar()">
+         <ion-icon name="arrow-down-outline"></ion-icon>
+       </ion-button>
+       <ion-button (click)="onCompartir()">
+         <ion-icon name="share-social-outline"></ion-icon>
+       </ion-button>
+     </ion-col>
+   </ion-row>
+   
+ </ion-grid>
+
+</ion-content>
