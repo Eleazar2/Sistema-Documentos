@@ -9,6 +9,7 @@ import * as pdfFonts from 'pdfmake/build/vfs_fonts'
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import { ITable } from 'pdfmake-wrapper/lib/interfaces';
 import { Table } from 'pdfmake-wrapper';
+import { Router } from '@angular/router';
 
 
 type Tablelista = [String, String, String];
@@ -23,7 +24,7 @@ export class ListaPage implements OnInit {
   datos: ListaVerifcacionI  [] = [];
   list: any;
   pdfObj = null;
-  constructor(private menu:MenuController, private modalCtrl:ModalController,private dataServices: DataService) { }
+  constructor(private menu:MenuController,private router: Router, private modalCtrl:ModalController,private dataServices: DataService) { }
 
   ngOnInit() {
     this.listas();
@@ -52,7 +53,10 @@ async  ModalVerificacion(){
   DescargarPDF(){
 
   }
+cuerpolista(){
+  this.router.navigate(['listverificacion']);
 
+}
  async firmar() {
     this.lista.closeSlidingItems();
     const modal = await this.modalCtrl.create({
