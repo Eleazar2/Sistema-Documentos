@@ -114,12 +114,12 @@ async  compartirOfi(evento) {
      confirmacion: 1
     }; 
 
-      this.dataServices.enviarOfic(env).subscribe( res =>{
+     // this.dataServices.enviarOfic(env).subscribe( res =>{
 
-        console.log(res);
+       // console.log(res);
        // this.envio = res;
         
-      });
+     // });
   }
 
   onDepartamentos(event) {

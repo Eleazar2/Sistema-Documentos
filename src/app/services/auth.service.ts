@@ -96,6 +96,8 @@ updataUserAdmin(id, dato: UserAdmin) {
 deleteUserAdmin(id: UserAdmin) {
   return this.http.delete(`${this.url}/admin/delete/` + id);
 }
-
+cambiarPassword(){
+  
+}
 
 }
