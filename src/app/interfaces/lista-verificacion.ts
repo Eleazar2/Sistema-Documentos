@@ -8,5 +8,9 @@ export interface ListaVerifcacionI{
     firma_rec?: string;
     nombre_area?: string;
     firma_area?: string;
+    estado?: string;
     personal_id?: number;
+    espacio?:string;
+    hallazgo?:string;
+    atendido?:string;
 }

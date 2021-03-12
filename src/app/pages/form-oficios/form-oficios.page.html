@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="primary">
-    <ion-title class="ion-text-center">{{datoficio.id_o == 0  ? 'Nuevo': 'Editar'}} Oficio</ion-title>
+    <ion-title class="ion-text-center">Nuevo Oficio</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">
         <ion-icon name="log-out-outline"></ion-icon>
@@ -82,14 +82,19 @@
           <ion-label position="stacked">Área del remitente:</ion-label>
           <ion-input type="text" [(ngModel)]="datoficio.remitente_depto" formControlName="remitente_depto" placeholder="Área"></ion-input>
         </ion-item>
+        
         <!--Mensaje error-->
         <ion-item *ngIf="FormOf.get('remitente_depto').errors && FormOf.get('remitente_depto').dirty">
           <p class="msg-error" *ngIf="FormOf.get('remitente_depto').hasError('required')">Campo requerido !</p>
         </ion-item>
+        
+      
       </ion-list>
     
-        <ion-button slot="end" color="primary" expand="block" shape="round" (click)="Generar()" [disabled]="!FormOf.valid">{{datoficio.id_o == 0 ? 'Guardar':'Actualizar'}}</ion-button>
-      
+        <ion-button slot="end" color="primary" expand="block" shape="round" (click)="Generar()" >Generar</ion-button>
+        
+
+        
     </form>
- 
+    
 </ion-content>
