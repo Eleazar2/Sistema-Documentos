@@ -16,7 +16,7 @@ export class NotificacionPage implements OnInit {
 
 
   ngOnInit() {
-    this.listarEnvioOfice();
+    //this.listarEnvioOfice();
   }
 
   openMenu1(){
@@ -25,13 +25,13 @@ export class NotificacionPage implements OnInit {
     this.menu.enable(false,'tercerMenu');
     this.menu.open('primerMenu');
   }
-
+/*
   listarEnvioOfice(){
     this.dataServices.getAllEnviadoOfic().subscribe(res =>{
       this.listarenvio = res;
     })
   }
-
+*/
   onFirmar(){
     this.router.navigate(['form-firma']);
 

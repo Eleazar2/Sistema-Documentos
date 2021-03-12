@@ -21,41 +21,42 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-list #lista >
-    <ion-item-sliding *ngFor="let ofice of datofice">
+  <ion-list #lista  >
+    
+    <ion-item-sliding  *ngFor="let task of datos">
       <ion-item>
-        <ion-label>
-          {{ofice.nombre_o}}
-        </ion-label>
-        <ion-button fill="clear" slot="end" (click)="onDescargar(ofice.id_o)">
+        <ion-label>{{ task.id_o}}</ion-label>
+        <ion-label>{{ task.nombre_o }}</ion-label>
+        <ion-button fill="clear" slot="end" (click)="pdfoficio(task.id_o)">
           <ion-icon slot="icon-only" name="arrow-down-circle-outline"></ion-icon>
         </ion-button>
       </ion-item>
-
+      
+      
       <ion-item-options side="start">
         <!--<ion-item-option color="secondary" (click)="desacrgar()">
           <ion-icon slot="icon-only" name="arrow-down-circle-outline"></ion-icon>
         </ion-item-option>-->
-        <ion-item-option color="primary" (click)="firmar()">
+        <ion-item-option color="primary" (click)="firmar(task.id_o)">
           <ion-icon slot="icon-only" name="qr-code-outline"></ion-icon>
         </ion-item-option>
       </ion-item-options>
 
       <ion-item-options side="end">
-        <ion-item-option color="success" (click)="editarOfi(ofice)">
+        <ion-item-option color="success" (click)="editarOfi()">
           <ion-icon slot="icon-only" name="create-outline"></ion-icon>
         </ion-item-option>
-        <ion-item-option color="danger" (click)="eliminarOfi(ofice.id_o)">
+        <ion-item-option color="danger" (click)="eliminar(task.id_o)">
           <ion-icon slot="icon-only" name="trash"></ion-icon>
         </ion-item-option>
-        <ion-item-option (click)="compartirOfi($event)"  color="warning" >
+        <ion-item-option color="warning" (click)="compartirOfi()">
           <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
         </ion-item-option>
       </ion-item-options>
 
     </ion-item-sliding>
-
   </ion-list>
+  
 </ion-content>
 
 <!--

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { ListaVerifcacionI } from '../../interfaces/lista-verificacion';
+import { DataService } from '../../services/data.service';
 @Component({
   selector: 'app-form-listverificacion',
   templateUrl: './form-listverificacion.page.html',
@@ -11,9 +12,23 @@ import { Router } from '@angular/router';
 export class FormListverificacionPage implements OnInit {
 
   FormList: FormGroup;
+  
+  datolista: ListaVerifcacionI = {
+    nombre_lf: null,
+    depto_responsable: '',
+    area_verificada: '',
+    fecha_realizada: '',
+    nombre_rec: '',
+    firma_rec: '',
+    nombre_area: '',
+    firma_area: '', 
+    estado: '',
+    personal_id: 0
 
+  }
+  
 
-  constructor(private modalCtrl:ModalController,
+  constructor(private modalCtrl:ModalController,public toastController: ToastController,private dataServices: DataService,
               private fb: FormBuilder,
               private router: Router
               ) {
@@ -32,8 +47,18 @@ export class FormListverificacionPage implements OnInit {
   closeModal(){
     this.modalCtrl.dismiss();
   }
-  Generar(){
-    this.router.navigate(['listverificacion']);
+  async Generar(){
+    //console.log(this.usuario);
+    const toast = await this.toastController.create({
+      message: 'Nuevo usuario agregado.',
+      duration: 2000
+    });
+    this.dataServices.crearLista_V(this.datolista).subscribe(
+      (res)=>{
+      console.log(res);
+    });
+    toast.present();
+   
     this.modalCtrl.dismiss();
   }
 

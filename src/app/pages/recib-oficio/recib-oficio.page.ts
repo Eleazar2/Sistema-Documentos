@@ -20,7 +20,7 @@ export class RecibOficioPage implements OnInit {
   constructor(private menu: MenuController,private dataServices:DataService, private modalCtrl:ModalController) { }
 
   ngOnInit() {
-    this.listarEnvioOfice();
+    //this.listarEnvioOfice();
   }
 
   openMenu1(){
@@ -29,13 +29,13 @@ export class RecibOficioPage implements OnInit {
     this.menu.enable(false,'tercerMenu');
     this.menu.open('primerMenu');
   }
-
+/*
   listarEnvioOfice(){
     this.dataServices.getAllEnviadoOfic().subscribe(res =>{
       this.listarenvoficio = res;
     }, err => console.error(err));
   }
-
+*/
 async  Editar(oficio: OficioI){
   this.lista.closeSlidingItems();
   console.log(oficio);

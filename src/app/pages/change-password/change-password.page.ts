@@ -23,14 +23,14 @@ export class ChangePasswordPage implements OnInit {
 
   ngOnInit() {
   }
-
+/*
   cambiarPassword(){
 
     this.authServices.cambiarPassword(this.formchange_pass.value).subscribe(res=>{
       this.presentToast('Tu contraseña ha sido cambiado..');
       this.router.navigate(['inicio']);
     }, err => console.error(err));
-  }
+  }*/
 
   async presentToast(message: string) {
     const toast = await this.toastCtrl.create({
