@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title class="ion-text-center">Generación de firma</ion-title>
+    <ion-title class="ion-text-center">Generaciónn de firma</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">
         <ion-icon name="log-out-outline"></ion-icon>
@@ -11,11 +11,11 @@
 
 <ion-content class="ion-padding">
   
-  <form [formGroup]="formfirma">
+ 
     <ion-list>
       <ion-item>
         <ion-label>RFC: </ion-label>
-        <ion-input type="text" [(ngModel)]="datofirma.rfc" formControlName="rfc" placeholder="RFC"></ion-input>
+        <ion-input type="text"   placeholder="RFC" [(ngModel)]="qrData5"></ion-input>
       </ion-item>
       <!--Validacion-->
       <ion-item *ngIf="formfirma.get('rfc').errors && formfirma.get('rfc').dirty">
@@ -23,7 +23,7 @@
       </ion-item>
       <ion-item>
         <ion-label>Nombre Completo: </ion-label>
-        <ion-input type="text" [(ngModel)]="datofirma.nombreC" formControlName="nombreC" placeholder="Nombre completo"></ion-input>
+        <ion-input type="text"   placeholder="Nombre completo" [(ngModel)]="qrData4"></ion-input>
       </ion-item>
       <!--Validacion-->
       <ion-item *ngIf="formfirma.get('nombreC').errors && formfirma.get('nombreC').dirty">
@@ -31,16 +31,28 @@
       </ion-item>
       <ion-item>
         <ion-label>Fecha: </ion-label>
-        <ion-datetime displayFormat="DD/MMM/YYYY" formControlName="fecha" [ngModel]="datofirma.fecha.toISOString()" cancelText="Cancelar" doneText="Aceptar" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre" (ionChange)="cambioFecha($event)"></ion-datetime>
+        <ion-datetime displayFormat="DD/MMM/YYYY" [(ngModel)]="qrData3"  ></ion-datetime>
       </ion-item>
       <!--Validacion-->
       <ion-item *ngIf="formfirma.get('fecha').errors && formfirma.get('fecha').dirty">
         <p class="msg-error" ion-text *ngIf="formfirma.get('fecha').hasError('required')">Campo requerido !</p>
       </ion-item>
-      <ion-button (click)="generarFirma()" expand="block" shape="round" [disabled]="!formfirma.valid">
+      <ion-button (click)="createCode()" expand="block" shape="round">
         Generar firma
       </ion-button>
+
+        
+      <ion-card *ngIf="scan">
+        <ngx-qrcode [value]="scan" [elementType]="elementType"></ngx-qrcode>
+        <ion-card-content>
+          <p>Value: {{scan}}</p>
+        
+        </ion-card-content>
+      </ion-card>
+      <ion-button (click)="detalle()" expand="block" shape="round">FIRMAR</ion-button>
+      
     </ion-list>
-  </form>
+   
+ 
 
 </ion-content>

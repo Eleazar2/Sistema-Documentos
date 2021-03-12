@@ -11,6 +11,7 @@ export interface OficioI{
     remitente_depto?: string;
     visto_bueno?: string;
     estado?: string;
+    firma?:string;
     personal_id?: number;
 
 }
