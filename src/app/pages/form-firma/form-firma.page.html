@@ -43,10 +43,10 @@
 
         
       <ion-card *ngIf="scan">
-        <ngx-qrcode [value]="scan" [elementType]="elementType"></ngx-qrcode>
+        <!--<ngx-qrcode [value]="scan" [elementType]="elementType"></ngx-qrcode>-->
         <ion-card-content>
           <p>Value: {{scan}}</p>
-        
+
         </ion-card-content>
       </ion-card>
       <ion-button (click)="detalle()" expand="block" shape="round">FIRMAR</ion-button>

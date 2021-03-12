@@ -27,7 +27,7 @@ export class NotificacionPage implements OnInit {
   }
 
   listarEnvioOfice(){
-    this.dataServices.getAllEnviadoOifc().subscribe(res =>{
+    this.dataServices.getAllEnviadoOfic().subscribe(res =>{
       this.listarenvio = res;
     })
   }

@@ -71,13 +71,12 @@ export class FormFirmaPage implements OnInit {
 
   createCode() {
     this.scan = `BEGIN:VCARD
-VERSION:3.0
+    VERSION:3.0
 
-URL:${this.qrData3}
-EMAIL:${this.qrData4}
-TEL:${this.qrData5}
-END:VCARD
-`
+    URL:${this.qrData3}
+    EMAIL:${this.qrData4}
+    TEL:${this.qrData5}
+    END:VCARD`
     //	this.scan = this.qrData;
    
   }

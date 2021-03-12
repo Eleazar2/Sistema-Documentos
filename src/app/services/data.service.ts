@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 //import { Componente } from '../interfaces/interfaces';
 import { Depto, } from '../interfaces/depto';
 import { OficioI } from '../interfaces/oficio';
+import { RespuestaEnvioOficI, EnvioOficI } from '../interfaces/envio_ofic';
 
 
 @Injectable({
@@ -140,6 +141,42 @@ getjoinLista(id){
   delateOrdenT(id){
     return this.http.delete(`${this.API_URL}/ordenT/delete/`+id);
   }
+    //------------------------------Enivio_Oficio----------------------
+    getAllEnviadoOfic(){
+      return this.http.get<RespuestaEnvioOficI[]>(`${this.API_URL}/envio/`);
+    }
+  
+    enviarOfic(dato: EnvioOficI){
+      return this.http.post(`${this.API_URL}/envio/`,dato);
+    }
+
+  //-----------------------------Envio_Lista
+
+  getAllEnviadoLista(){
+    return this.http.get(`${this.API_URL}/enviolista/`);
+   }
+ 
+   envairLista(dato){
+    return this.http.post(`${this.API_URL}/enviolista/`,dato);
+   }
+ 
+   //------------------------Envio_Manto Preventivo
+   getAllEnvioMantoPrvent(){
+     return this.http.get(`${this.API_URL}/enviomanto/`)
+   }
+ 
+   enviarMantoPrevent(dato){
+    return this.http.post(`${this.API_URL}/enviomanto/`,dato);
+   }
+   //------------------------Envio Solicitud--
+  getAllEnvioSolicitud(){
+   return this.http.get(`${this.API_URL}/enviosolicitud/`);
+  }
+ 
+  enviarSolicitud(dato){
+    return this.http.post(`${this.API_URL}/enviosolicitud/`,dato);
+  }
+ 
 
   //----------
   ///Menu

@@ -64,6 +64,9 @@ getIdPersonal(id: UserPersonal) {
 crearPersonal(personal: UserPersonal) {
   return this.http.post(`${this.url}/personal/registrar`, personal);
 }
+cambiarPassword(personal:UserPersonal){
+  return this.http.post(`${this.url}/personal/change-password`,personal);
+}
 
 updatePersonal(id, dato: UserPersonal) {
   return this.http.put(`${this.url}/personal/update/` + id, dato);

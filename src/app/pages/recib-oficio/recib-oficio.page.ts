@@ -31,7 +31,7 @@ export class RecibOficioPage implements OnInit {
   }
 
   listarEnvioOfice(){
-    this.dataServices.getAllEnviadoOifc().subscribe(res =>{
+    this.dataServices.getAllEnviadoOfic().subscribe(res =>{
       this.listarenvoficio = res;
     }, err => console.error(err));
   }
