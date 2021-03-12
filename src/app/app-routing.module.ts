@@ -138,6 +138,34 @@ const routes: Routes = [
   {
     path: 'recib-solicitud',
     loadChildren: () => import('./pages/recib-solicitud/recib-solicitud.module').then( m => m.RecibSolicitudPageModule)
+  },
+  {
+    path: 'lista-mantenimiento',
+    loadChildren: () => import('./pages/lista-mantenimiento/lista-mantenimiento.module').then( m => m.ListaMantenimientoPageModule)
+  },
+  {
+    path: 'form-mantenimiento',
+    loadChildren: () => import('./pages/form-mantenimiento/form-mantenimiento.module').then( m => m.FormMantenimientoPageModule)
+  },
+  {
+    path: 'form-firma-mantenimiento',
+    loadChildren: () => import('./pages/form-firma-mantenimiento/form-firma-mantenimiento.module').then( m => m.FormFirmaMantenimientoPageModule)
+  },
+  {
+    path: 'form-firma2-mantenimiento',
+    loadChildren: () => import('./pages/form-firma2-mantenimiento/form-firma2-mantenimiento.module').then( m => m.FormFirma2MantenimientoPageModule)
+  },
+  {
+    path: 'autorizar-oficio',
+    loadChildren: () => import('./pages/autorizar-oficio/autorizar-oficio.module').then( m => m.AutorizarOficioPageModule)
+  },
+  {
+    path: 'autorizar-lista',
+    loadChildren: () => import('./pages/autorizar-lista/autorizar-lista.module').then( m => m.AutorizarListaPageModule)
+  },
+  {
+    path: 'autorizar-solicitud',
+    loadChildren: () => import('./pages/autorizar-solicitud/autorizar-solicitud.module').then( m => m.AutorizarSolicitudPageModule)
   }
 ];
 @NgModule({
