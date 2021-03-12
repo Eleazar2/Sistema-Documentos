@@ -58,7 +58,7 @@ export class FormListverificacionPage implements OnInit {
       console.log(res);
     });
     toast.present();
-   
+    this.router.navigate(['lista']);
     this.modalCtrl.dismiss();
   }
 

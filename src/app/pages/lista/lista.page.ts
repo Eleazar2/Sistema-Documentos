@@ -10,6 +10,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import { ITable } from 'pdfmake-wrapper/lib/interfaces';
 import { Table } from 'pdfmake-wrapper';
 import { Router } from '@angular/router';
+import { ListverificacionPage } from '../listverificacion/listverificacion.page';
 
 
 type Tablelista = [String, String, String];
@@ -53,8 +54,15 @@ async  ModalVerificacion(){
   DescargarPDF(){
 
   }
-cuerpolista(){
-  this.router.navigate(['listverificacion']);
+  //funcion para abrir modal cuerpo lista y mandar el id de la lista seleccionada
+  async cuerpolista(id){
+  const modal = await this.modalCtrl.create({
+    component: ListverificacionPage,
+   componentProps: { id }
+  });
+  return await modal.present();
+  //console.log(id);
+  //this.router.navigate(['listverificacion']);
 
 }
  async firmar() {
@@ -102,7 +110,7 @@ cuerpolista(){
       .widths([100, 350, 50])
       .margin([0, 15, 0, 0])
       .end;
-//hjbfjf
+
   }
   async pdflista(id) {
     this.dataServices.getjoinLista(id).subscribe(res =>{

@@ -17,7 +17,7 @@
 <ion-content>
   <ion-list  >
     <ion-item-sliding *ngFor="let task of list" >
-      <ion-item (click)="cuerpolista()">
+      <ion-item (click)="cuerpolista(task.id_lf)">
         <ion-label>{{ task.id_lf}}</ion-label>
         <ion-label>{{ task.nombre_lf }}</ion-label>
         <ion-button fill="clear" slot="end" (click)="pdflista(task.id_lf)">
