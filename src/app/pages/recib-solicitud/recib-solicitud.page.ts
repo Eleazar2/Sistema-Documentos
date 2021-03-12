@@ -8,6 +8,8 @@ import { MenuController } from '@ionic/angular';
 })
 export class RecibSolicitudPage implements OnInit {
 
+  listarenvsolicitud;
+
   constructor(private menu: MenuController) { }
 
   ngOnInit() {
@@ -18,6 +20,13 @@ export class RecibSolicitudPage implements OnInit {
     this.menu.enable(false, 'segundoMenu');
     this.menu.enable(false,'tercerMenu');
     this.menu.open('primerMenu');
+  }
+
+  Editar(){
+
+  }
+  Descargar(){
+    
   }
 
 }

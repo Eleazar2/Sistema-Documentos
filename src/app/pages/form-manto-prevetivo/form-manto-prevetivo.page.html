@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="success">
-    <ion-title class="ion-text-center">Registrar Manto. Preventivo</ion-title>
+    <ion-title class="ion-text-center">Nuevo Manto. Preventivo</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">
         <ion-icon name="log-out-outline"></ion-icon>
@@ -14,20 +14,19 @@
     <form [formGroup]="FormManto">
       <ion-list>
         <ion-item>
-          <ion-label position="stacked">Servicio: </ion-label>
-          <ion-input type="text" placeholder="Servicio" required></ion-input>
+          <ion-label position="stacked">Nombre Documento: </ion-label>
+          <ion-input type="text" placeholder="Servicio" ></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="stacked">Programado: </ion-label>
-          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"  placeholder="Fecha"></ion-datetime>
+          <ion-label position="stacked">Semestre: </ion-label>
+          <ion-select value="peperoni" placeholder="Selecciona el semestre correspondiente.">
+            <ion-select-option value="Enero-Junio">Enero-Junio</ion-select-option>
+            <ion-select-option value="Agosto-Diciembre">Agosto-Diciembre</ion-select-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label position="stacked">Realizado: </ion-label>
-          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"  placeholder="Fecha"></ion-datetime>
-        </ion-item>
-        <ion-item>
-          <ion-label position="stacked">Reprogramado: </ion-label>
-          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"  placeholder="Fecha"></ion-datetime>
+          <ion-label position="stacked">Año: </ion-label>
+          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="YYYY"  placeholder="Año"></ion-datetime>
         </ion-item>
       </ion-list>
     

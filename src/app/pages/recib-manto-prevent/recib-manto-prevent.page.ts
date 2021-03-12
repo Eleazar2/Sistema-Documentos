@@ -8,6 +8,7 @@ import { MenuController } from '@ionic/angular';
 })
 export class RecibMantoPreventPage implements OnInit {
 
+  listarenvmanto;
   constructor(private menu:MenuController) { }
 
   ngOnInit() {

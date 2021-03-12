@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Autorizar oficio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card color="primary" (click)="Firma()">
+          <ion-card-content>
+            <ion-icon name="people-outline"></ion-icon>
+          </ion-card-content>
+          <ion-card-header>
+            <ion-card-title>Firmar</ion-card-title>
+            <ion-card-subtitle></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+        
+      </ion-col>
+      <ion-col>
+        <ion-card color="success" (click)="vistoBueno()">
+          <ion-card-content>
+            <ion-icon name="pricetags-outline"></ion-icon>
+          </ion-card-content>
+          <ion-card-header>
+            <ion-card-title>Visto Bueno</ion-card-title>
+            <ion-card-subtitle></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+
+</ion-content>

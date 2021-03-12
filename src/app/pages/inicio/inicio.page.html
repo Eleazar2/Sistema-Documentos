@@ -3,22 +3,24 @@
   <ion-toolbar color="primary">
     <ion-title>Inicio</ion-title>
 
-  
-   
       <ion-buttons slot="start">
         <ion-button (click)="openMenu1()">
           <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
         </ion-button>
       </ion-buttons>
    
-      
-   
     
-      <ion-buttons slot="end">
+      <!--<ion-buttons slot="end">
         <ion-button (click)="cerrarClick($event)">
           <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
         </ion-button>
-      </ion-buttons>
+      </ion-buttons>-->
+      <ion-chip slot="end" color="light">
+        <ion-avatar>
+          <img src="./assets/img/person-circle-sharp.svg">
+        </ion-avatar>
+        <ion-label>division@ittlaxiaco.edu.mx</ion-label>
+      </ion-chip>
     
   </ion-toolbar>
 </ion-header>
@@ -26,10 +28,17 @@
 <ion-content class="ion-padding">
 
   <ion-card mode="ios">
+
+    <ion-item color="primary">
+      <ion-icon color="light" slot="start" name="location-sharp"></ion-icon>
+      <ion-label>Documentos Oficiales</ion-label>
+    </ion-item>
+
     <ion-card-content class="ion-text-justify">
       Bienvenido a la plataforma de manejo de documentos
       oficiales del Instituto Tecnológico de Tlaxiaco.
     </ion-card-content>
+
   </ion-card>
 
 </ion-content>

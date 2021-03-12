@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
               private formbuilder: FormBuilder) {
 
                 this.Formlogin = this.formbuilder.group({
-                  correo:['',[Validators.required]],
+                  correo:['',[Validators.required,Validators.email]],
                   password:['',[Validators.required]]
                 });
 
@@ -48,16 +48,6 @@ export class LoginPage implements OnInit {
     this.menuCtrl.enable(false, 'segundoMenu');
     this.menuCtrl.enable(false,'tercerMenu');
   }
-
-
-  public openPage(valor: string){
-    //console.log("valor: " + valor);
-    this.router.navigate(['/'+valor]);
-
-    }
-
- 
-
 
   IniciarSesion(){
     this.authServices.singinP(this.user).subscribe( res => {

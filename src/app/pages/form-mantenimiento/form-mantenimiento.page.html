@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Registrar Mantenimento Preventivo</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="FormManto">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Servicio: </ion-label>
+        <ion-textarea type="text" formControlName="servicio" placeholder="Ingresa el servicio realizado.."></ion-textarea>
+      </ion-item>
+      <!--Mensaje de error-->
+      <ion-item>
+        <ion-label></ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Tipo de servicio</ion-label>
+        <ion-select formControlName="tipo_servicio" placeholder="Selecciona el tipo de servicio">
+          <ion-select-option value="I">Interno</ion-select-option>
+          <ion-select-option value="E">Externo</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Actividad: </ion-label>
+        <ion-select formControlName="actividad" placeholder="Selecciona el tipo de servicio">
+          <ion-select-option value="P">Programado</ion-select-option>
+          <ion-select-option value="R">Realizado</ion-select-option>
+          <ion-select-option value="O">Reprogramado</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Fecha de la actividad:</ion-label>
+        <ion-datetime formControlName="dia_mes" cancelText="Cancelar" doneText="Aceptar" displayFormat="DD/MMMM/YYYY" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"  placeholder="Fecha"></ion-datetime>
+      </ion-item>
+
+    </ion-list>
+  
+      <ion-button slot="end" color="success" expand="block" shape="round" (click)="Guardar()" >Guardar</ion-button>
+    
+  </form>
+
+</ion-content>

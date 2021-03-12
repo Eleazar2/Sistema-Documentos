@@ -71,7 +71,7 @@ export class DataService {
   delateLista_V(id){
     return this.http.delete(`${this.API_URL}/lista_v/delete/`+id);
   }
-
+  
   /////-----------Programa Manto. Preventivo--------------------
 
   getAllManto_Prv(){
@@ -88,6 +88,22 @@ export class DataService {
   }
   delateManto_Prv(id){
     return this.http.delete(`${this.API_URL}/manto_prv/delete`+id);
+  }
+  //----------------Contenido Manto. Preventivo--------------------
+  getAllMantoPrv_Cont(){
+    return this.http.get(`${this.API_URL}/manto_prv_cont/`);
+  }
+  getIdOMantoPrv_Cont(id){
+    return this.http.get(`${this.API_URL}/manto_prv_cont/`+id);
+  }
+  crearMantoPrv_Cont(dato){
+    return this.http.post(`${this.API_URL}/manto_prv_cont/crear`,dato);
+  }
+  updateMantoPrv_Cont(id,dato){
+    return this.http.put(`${this.API_URL}/manto_prv_cont/update`+id,dato);
+  }
+  delateMantoPrv_Cont(id){
+    return this.http.delete(`${this.API_URL}/manto_prv_cont/delete`+id);
   }
   
   ////----------Solicitud Manto. Correctivo---------

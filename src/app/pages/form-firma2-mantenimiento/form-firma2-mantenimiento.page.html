@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Firma</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="formFirma">
+    <ion-list>
+      <ion-item>
+        <ion-label>Nombre completo:</ion-label>
+        <ion-input type="text" formControlName="aprobo" placeholder="Nombre completo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Fecha</ion-label>
+        <ion-datetime formControlName="fecha_aprobada" display-format="DD/MMMM/YYYY"></ion-datetime>
+      </ion-item>
+    </ion-list>
+    <ion-button (click)="onFirma()" expand="block" shape="round">
+      Generar
+    </ion-button>
+  </form>
+</ion-content>

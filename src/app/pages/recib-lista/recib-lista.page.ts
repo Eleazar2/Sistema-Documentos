@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recib-lista.page.scss'],
 })
 export class RecibListaPage implements OnInit {
+  listarenvlista;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  Editar(){
+
+  }
+  Descargar(){
+
   }
 
 }

@@ -3,6 +3,7 @@ import { ModalController, MenuController } from '@ionic/angular';
 import { FormMantoPrevetivoPage } from '../form-manto-prevetivo/form-manto-prevetivo.page';
 import { FormFirmaPage } from '../form-firma/form-firma.page';
 import { async } from '@angular/core/testing';
+import { FormMantenimientoPage } from '../form-mantenimiento/form-mantenimiento.page';
 
 @Component({
   selector: 'app-mantopreventivo',
@@ -24,7 +25,7 @@ export class MantopreventivoPage implements OnInit {
 
   async abrirModal() {
     const modal = await this.modalCtrl.create({
-      component: FormMantoPrevetivoPage
+      component: FormMantenimientoPage
     });
     modal.present();
   }

@@ -3,13 +3,43 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Oficio recibido</ion-title>
+    <ion-title>Recibido</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  <h2 class="ion-text-center">Notificaciones Recibidas</h2>
+  
+
+    <ion-list #lista>
+      <ion-item-sliding *ngFor="let oficio of listarenvoficio; index as i">
+        <ion-item>
+          <ion-label>
+            <p>{{i+1}} {{oficio.nombre_o}}</p>
+            <p>{{oficio.fecha}}</p>
+            <p>{{oficio.nombred}}</p>
+            <p>{{oficio.nombre_p}}{{oficio.apaterno}} {{oficio.amaterno}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="Editar(oficio)">
+            <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="danger" (click)="Descargar()">
+            <ion-icon slot="icon-only" name="cloud-download-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+    
+      </ion-item-sliding>
+    </ion-list>
+
+ 
+
+</ion-content>
+
+
+  <!--
+ <h2 class="ion-text-center">Notificaciones Recibidas</h2>
   <ion-grid class="ion-margin">
    <ion-row>
      <ion-col>No.</ion-col>
@@ -37,5 +67,4 @@
    </ion-row>
    
  </ion-grid>
-
-</ion-content>
+  -->

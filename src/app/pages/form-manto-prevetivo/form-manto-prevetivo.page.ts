@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { FormBuilder, FormGroup,Validators, } from '@angular/forms';
+import { Router } from '@angular/router';
+import { async } from '@angular/core/testing';
+import { MantopreventivoPage } from '../mantopreventivo/mantopreventivo.page';
 
 
 @Component({
@@ -12,7 +15,7 @@ export class FormMantoPrevetivoPage implements OnInit {
 
   FormManto: FormGroup;
 
-  constructor( private modalCtrl: ModalController, private fb: FormBuilder) {
+  constructor( private modalCtrl: ModalController, private fb: FormBuilder, private router:Router) {
     this.FormManto = this.fb.group({
           
           servicio:['',[Validators.required]],
@@ -36,7 +39,12 @@ export class FormMantoPrevetivoPage implements OnInit {
   }
 
 
-  Guardar(){
+async  Guardar(){
+    this.modalCtrl.dismiss();
+    const modal = await this.modalCtrl.create({
+      component: MantopreventivoPage
+    });
+    modal.present();
 
   }
 

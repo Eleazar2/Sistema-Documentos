@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MenuController, ModalController, IonList } from '@ionic/angular';
 import { DataService } from '../../services/data.service';
 import { RespuestaEnvioOficI } from '../../interfaces/envio_ofic';
+import { async } from '@angular/core/testing';
+import { FormOficiosPage } from '../form-oficios/form-oficios.page';
+import { OficioI } from '../../interfaces/oficio';
 
 @Component({
   selector: 'app-recib-oficio',
@@ -10,9 +13,11 @@ import { RespuestaEnvioOficI } from '../../interfaces/envio_ofic';
 })
 export class RecibOficioPage implements OnInit {
 
-  listarenvlista: RespuestaEnvioOficI[] = [];
+  @ViewChild('lista') lista: IonList;
 
-  constructor(private menu: MenuController,private dataServices:DataService) { }
+  listarenvoficio: RespuestaEnvioOficI[] = [];
+
+  constructor(private menu: MenuController,private dataServices:DataService, private modalCtrl:ModalController) { }
 
   ngOnInit() {
     this.listarEnvioOfice();
@@ -27,17 +32,19 @@ export class RecibOficioPage implements OnInit {
 
   listarEnvioOfice(){
     this.dataServices.getAllEnviadoOifc().subscribe(res =>{
-      this.listarenvlista = res;
+      this.listarenvoficio = res;
     }, err => console.error(err));
   }
 
-  onFirmar(){
-
+async  Editar(oficio: OficioI){
+  this.lista.closeSlidingItems();
+  console.log(oficio);
+  const modal = await this.modalCtrl.create({
+    component: FormOficiosPage,
+    componentProps: { oficio }
+  }).then(modal => modal.present());
   }
-  onDescargar(){
-
-  }
-  onCompartir(){
+  Descargar(){
 
   }
 
