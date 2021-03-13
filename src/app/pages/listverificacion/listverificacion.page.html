@@ -21,20 +21,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" >
 
   <ion-grid class="ion-text-center">
 
 
-    <ion-row class="header-row"  *ngFor="let task of list">
+    <ion-row class="header-row" >
 
       <ion-col>
         <ion-text>Espacio Revisado</ion-text>
-      
+        
       </ion-col>
-      
-        <ion-label>{{ task.hallazgo}}</ion-label>
-      
+             
       <ion-col>
         <ion-text>Hallazgo</ion-text>
       </ion-col>
@@ -51,13 +49,33 @@
         </ion-row>
       </ion-col>
     </ion-row>
+    
 
+    <ion-row >
+      <ion-col *ngFor="let cuerpo of list" >
+       
+        <ion-list>
+          <ion-item-sliding>
+          <ion-item>
+          <ion-label>{{cuerpo.espacio }}</ion-label>
+          <ion-label></ion-label>
+          <ion-label>{{cuerpo.hallazgo}}</ion-label>
+          <ion-label></ion-label>
+           <ion-label>{{cuerpo.atendido }}</ion-label>
+        </ion-item>
 
-    <ion-row>
-      <ion-col *ngFor="let item of [1,1,1]">
-        <ion-text>
-          Departamento de Ingenerias
-        </ion-text>
+        <ion-item-options side="end">
+          <ion-item-option color="success" >
+            <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="danger" >
+            <ion-icon slot="icon-only" name="trash" (click)="eliminarcuerpo(cuerpo.id_cu)"></ion-icon>
+          </ion-item-option>
+         
+        </ion-item-options>
+      </ion-item-sliding>
+        </ion-list>
+
       </ion-col>
     </ion-row>
 

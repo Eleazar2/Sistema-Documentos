@@ -26,7 +26,13 @@ this.mostrar(this.id);
     //this.router.navigate(['lista']);
     this.modalCtrl.dismiss();
   }
- 
+  eliminarcuerpo(id_cu:string) {
+    this.dataServices.delatecuerpo(id_cu)
+      .subscribe(() => {
+      })
+  this.router.navigate['listverificacion'];
+
+  }
     openMenu1(){
       this.menu.enable(true,'primerMenu');
       this.menu.enable(false, 'segundoMenu');

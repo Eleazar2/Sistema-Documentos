@@ -20,9 +20,11 @@
       <ion-item (click)="cuerpolista(task.id_lf)">
         <ion-label>{{ task.id_lf}}</ion-label>
         <ion-label>{{ task.nombre_lf }}</ion-label>
+       
         <ion-button fill="clear" slot="end" (click)="pdflista(task.id_lf)">
           <ion-icon slot="icon-only" name="arrow-down-circle-outline"></ion-icon>
         </ion-button>
+      
       </ion-item>
       
       
@@ -44,6 +46,9 @@
         </ion-item-option>
         <ion-item-option color="warning" >
           <ion-icon slot="icon-only" name="share-social-outline" ></ion-icon>
+        </ion-item-option>
+        <ion-item-option >
+          <ion-icon slot="icon-only" (click)="pdflista(task.id_lf)" name="arrow-down-circle-outline"></ion-icon>
         </ion-item-option>
       </ion-item-options>
 
