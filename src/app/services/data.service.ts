@@ -4,6 +4,8 @@ import { HttpClient } from "@angular/common/http";
 import { Depto, } from '../interfaces/depto';
 import { OficioI } from '../interfaces/oficio';
 import { RespuestaEnvioOficI, EnvioOficI } from '../interfaces/envio_ofic';
+import { EspacioRevisadoI } from '../interfaces/espacio-revisado';
+import { ListaVerifcacionI } from '../interfaces/lista-verificacion';
 
 
 @Injectable({
@@ -51,19 +53,19 @@ export class DataService {
   updateOficio(id,dato){
     return this.http.put(`${this.API_URL}/oficio/update/`+id,dato);
   }
-  delateOficio(id){
+  deleteOficio(id){
     return this.http.delete(`${this.API_URL}/oficio/delete/`+id);
   }
   /////-----------------Lista de verificacion-------------------
   getAllLista_V(){
-    return this.http.get(`${this.API_URL}/lista`);
+    return this.http.get<ListaVerifcacionI[]>(`${this.API_URL}/lista`);
   }
   getIdLista_V(id){
     return this.http.get(`${this.API_URL}/lista/`+id);
   }
-getjoinLista(id){
-  return this.http.get(`${this.API_URL}/lista/join/`+id);
-}
+  getjoinLista(id){
+    return this.http.get(`${this.API_URL}/lista/join/`+id);
+  }
   crearLista_V(dato){
     return this.http.post(`${this.API_URL}/lista/crear`,dato);
   }
@@ -74,21 +76,20 @@ getjoinLista(id){
     return this.http.delete(`${this.API_URL}/lista/delete/`+id);
   }
   ////----------------------cuerpo lista---------------
-  getAllcuerpo(){
-    return this.http.get(`${this.API_URL}/listacuerpo`);
+  getAllEspacioRV(){
+    return this.http.get<EspacioRevisadoI[]>(`${this.API_URL}/cuerpo_lista/`);
   }
-  getIdcuerpo(id){
-    return this.http.get(`${this.API_URL}/listacuerpo/`+id);
+  getIdEspacioRV(id){
+    return this.http.get(`${this.API_URL}/cuerpo_lista/`+ id);
   }
-
-  crearcuerpo(dato){
-    return this.http.post(`${this.API_URL}/listacuerpo/crear`,dato);
+  crearEspacioRV(dato){
+    return this.http.post(`${this.API_URL}/cuerpo_lista/`,dato);
   }
-  updatecuerpo(id,dato){
-    return this.http.put(`${this.API_URL}/listacuerpo/update/`+id,dato);
+  updateEspacioRV(id,dato){
+    return this.http.put(`${this.API_URL}/cuerpo_lista/update/`+ id,dato);
   }
-  delatecuerpo(id){
-    return this.http.delete(`${this.API_URL}/listacuerpo/delete/`+id);
+  deleteEspacioRV(id){
+    return this.http.delete(`${this.API_URL}/cuerpo_lista/delete/`+ id);
   }
   /////-----------Programa Manto. Preventivo--------------------
 
