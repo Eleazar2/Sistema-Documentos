@@ -73,7 +73,23 @@ getjoinLista(id){
   delateLista_V(id){
     return this.http.delete(`${this.API_URL}/lista/delete/`+id);
   }
-  
+  ////----------------------cuerpo lista---------------
+  getAllcuerpo(){
+    return this.http.get(`${this.API_URL}/listacuerpo`);
+  }
+  getIdcuerpo(id){
+    return this.http.get(`${this.API_URL}/listacuerpo/`+id);
+  }
+
+  crearcuerpo(dato){
+    return this.http.post(`${this.API_URL}/listacuerpo/crear`,dato);
+  }
+  updatecuerpo(id,dato){
+    return this.http.put(`${this.API_URL}/listacuerpo/update/`+id,dato);
+  }
+  delatecuerpo(id){
+    return this.http.delete(`${this.API_URL}/listacuerpo/delete/`+id);
+  }
   /////-----------Programa Manto. Preventivo--------------------
 
   getAllManto_Prv(){
