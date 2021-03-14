@@ -6,7 +6,7 @@
       </ion-button>
     </ion-buttons>
     <ion-title>Listas de Verificación</ion-title>
-    <ion-buttons slot="end" >
+    <ion-buttons slot="end">
       <ion-button (click)="ModalVerificacion()">
         <ion-icon name="add"></ion-icon>
       </ion-button>
@@ -15,38 +15,34 @@
 </ion-header>
 
 <ion-content>
-  <ion-list  >
-    <ion-item-sliding *ngFor="let task of list" >
-      <ion-item (click)="cuerpolista()">
+  <ion-list #lista>
+    <ion-item-sliding *ngFor="let task of list">
+      <ion-item (click)="cuerpolista(task.id_lf)">
         <ion-label>{{ task.id_lf}}</ion-label>
         <ion-label>{{ task.nombre_lf }}</ion-label>
         <ion-button fill="clear" slot="end" (click)="pdflista(task.id_lf)">
           <ion-icon slot="icon-only" name="arrow-down-circle-outline"></ion-icon>
         </ion-button>
       </ion-item>
-      
-      
+
+
       <ion-item-options side="start">
-        <!--<ion-item-option color="secondary" (click)="desacrgar()">
-          <ion-icon slot="icon-only" name="arrow-down-circle-outline"></ion-icon>
-        </ion-item-option>-->
+
         <ion-item-option color="primary" (click)="firmar()">
           <ion-icon slot="icon-only" name="qr-code-outline"></ion-icon>
         </ion-item-option>
-      </ion-item-options>
-
-      <ion-item-options side="end">
-        <ion-item-option color="success" >
-          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-item-options>
+        <ion-item-options side="end">
+        <ion-item-option color="success">
+          <ion-icon slot="icon-only" name="create-outline" (click)="editarLista(task)"></ion-icon>
         </ion-item-option>
-        <ion-item-option color="danger" >
+        <ion-item-option color="danger">
           <ion-icon slot="icon-only" name="trash" (click)="eliminarLista(task.id_lf)"></ion-icon>
         </ion-item-option>
-        <ion-item-option color="warning" >
-          <ion-icon slot="icon-only" name="share-social-outline" ></ion-icon>
+        <ion-item-option color="warning">
+          <ion-icon slot="icon-only" name="share-social-outline" (click)="compartirLista($event)"></ion-icon>
         </ion-item-option>
       </ion-item-options>
-
 
     </ion-item-sliding>
 

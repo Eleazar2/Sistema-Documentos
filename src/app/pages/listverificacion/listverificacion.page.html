@@ -2,8 +2,8 @@
   <ion-toolbar color="primary">
 
     <ion-buttons slot="start">
-      <ion-button (click)="openMenu1()">
-        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      <ion-button (click)="irA_lista()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
 
@@ -23,13 +23,16 @@
 
 
     <ion-row class="header-row">
+      <ion-col>
+        <ion-text>No.</ion-text>
+      </ion-col>
 
       <ion-col>
         <ion-text>Espacio Revisado</ion-text>
       </ion-col>
 
       <ion-col>
-        <ion-text>Hallazgo</ion-text>
+        <ion-text>Hallazgos</ion-text>
       </ion-col>
 
       <ion-col>
@@ -46,10 +49,23 @@
     </ion-row>
 
 
-    <ion-row>
-      <ion-col *ngFor="let item of [1,1,1]">
+    <ion-row *ngFor="let espac_rev of listar_esp">
+      <ion-col>
+        {{espac_rev.id_cu}}
+      </ion-col>
+      <ion-col>
         <ion-text>
-          Departamento de Ingenerias
+          {{espac_rev.espacio}}
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>
+          {{espac_rev.hallazgo}}
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>
+            {{espac_rev.atendido}}
         </ion-text>
       </ion-col>
     </ion-row>

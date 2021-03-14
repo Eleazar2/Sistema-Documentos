@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="primary">
-    <ion-title class="ion-text-center">Agregar Lista de Verificación</ion-title>
+    <ion-title class="ion-text-center">{{!datolista.id_lf  ?'Agregar':'Actualizar'}} Lista de Verificación</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">
         <ion-icon name="log-out-outline"></ion-icon>
@@ -11,39 +11,38 @@
 
 <ion-content class="ion-padding">
   
-
-    
+    <form [formGroup]="FormList">
       <ion-list>
         <ion-item>
           <ion-label position="stacked">Nombre Lista: </ion-label>
-          <ion-input type="text"   placeholder="nombre lista"  [(ngModel)]="datolista.nombre_lf"></ion-input>
+          <ion-input type="text"   placeholder="nombre lista"  [(ngModel)]="datolista.nombre_lf" formControlName="nombre_lf"></ion-input>
         </ion-item>
+
         <ion-item>
           <ion-label position="stacked">Nombre del departamento y del jefe: </ion-label>
-          <ion-input type="text"   placeholder="nombre dep" [(ngModel)]="datolista.depto_responsable"></ion-input>
+          <ion-input type="text"   placeholder="nombre dep" [(ngModel)]="datolista.depto_responsable" formControlName="depto_responsable"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="stacked">Nombre: jefe area verificada: </ion-label>
-          <ion-input type="text"   placeholder="nombre de jefe area" [(ngModel)]="datolista.area_verificada"></ion-input>
+          <ion-label position="stacked">Nombre: Jefe area verificada: </ion-label>
+          <ion-input type="text"   placeholder="nombre de jefe area" [(ngModel)]="datolista.area_verificada" formControlName="area_verificada"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Fecha verificación</ion-label>
-          <ion-datetime displayFormat="DD/MMM/YYYY" [(ngModel)]="datolista.fecha_realizada"></ion-datetime>
+          <ion-datetime cancelText="Cancelar" doneText="Aceptar" displayFormat="DD / MMM / YYYY" [(ngModel)]="datolista.fecha_realizada" formControlName="fecha_realizada" monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"></ion-datetime>
         </ion-item>
         <ion-item>
-          <ion-label position="stacked">Nombre jefe de R. materiales </ion-label>
-          <ion-input type="text"   placeholder="nombre jefe de R. materiales" [(ngModel)]="datolista.nombre_rec"></ion-input>
+          <ion-label position="stacked">Nombre Jefe de R. materiales </ion-label>
+          <ion-input type="text"   placeholder="nombre jefe de R. materiales" [(ngModel)]="datolista.nombre_rec" formControlName="nombre_rec"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="stacked">Nombre de area verificada </ion-label>
-          <ion-input type="text"   placeholder="Nombre area verificada" [(ngModel)]="datolista.nombre_area"></ion-input>
+          <ion-label position="stacked">Nombre del responsable del area verificada </ion-label>
+          <ion-input type="text"   placeholder="Nombre area verificada" [(ngModel)]="datolista.nombre_area" formControlName="nombre_area"></ion-input>
         </ion-item>
-        
+    
+          <ion-button type= "submit" color="primary" expand="block" shape="round" (click)="Generar()" >{{!datolista.id_lf  ? 'Registrar':'Actulizar'}}</ion-button>
   
-          <ion-button type= "submit" color="primary" expand="block" shape="round" (click)="Generar()" >Registrar</ion-button>
-  
-       </ion-list> 
- 
-
+       </ion-list>
+    </form>
+    
 
 </ion-content>

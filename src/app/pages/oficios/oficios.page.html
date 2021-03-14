@@ -21,85 +21,38 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+
   <ion-list #lista  >
     
-    <ion-item-sliding  *ngFor="let task of datos">
+    <ion-item-sliding  *ngFor="let oficio of datos">
+
       <ion-item>
-        <ion-label>{{ task.id_o}}</ion-label>
-        <ion-label>{{ task.nombre_o }}</ion-label>
-        <ion-button fill="clear" slot="end" (click)="pdfoficio(task.id_o)">
+        <ion-label>{{ oficio.id_o}}</ion-label>
+        <ion-label>{{ oficio.nombre_o }}</ion-label>
+        <ion-button fill="clear" slot="end" (click)="pdfoficio(oficio.id_o)">
           <ion-icon slot="icon-only" name="arrow-down-circle-outline"></ion-icon>
         </ion-button>
       </ion-item>
       
       
       <ion-item-options side="start">
-        <!--<ion-item-option color="secondary" (click)="desacrgar()">
-          <ion-icon slot="icon-only" name="arrow-down-circle-outline"></ion-icon>
-        </ion-item-option>-->
-        <ion-item-option color="primary" (click)="firmar(task.id_o)">
+        <ion-item-option color="primary" (click)="firmar(oficio.id_o)">
           <ion-icon slot="icon-only" name="qr-code-outline"></ion-icon>
         </ion-item-option>
       </ion-item-options>
-
       <ion-item-options side="end">
-        <ion-item-option color="success" (click)="editarOfi()">
+        <ion-item-option color="success" (click)="editarOfi(oficio)">
           <ion-icon slot="icon-only" name="create-outline"></ion-icon>
         </ion-item-option>
-        <ion-item-option color="danger" (click)="eliminar(task.id_o)">
+        <ion-item-option color="danger" (click)="eliminar(oficio.id_o)">
           <ion-icon slot="icon-only" name="trash"></ion-icon>
         </ion-item-option>
-        <ion-item-option color="warning" (click)="compartirOfi()">
+        <ion-item-option color="warning" (click)="compartirOfi($event)">
           <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
         </ion-item-option>
       </ion-item-options>
-
     </ion-item-sliding>
+    
   </ion-list>
   
 </ion-content>
-
-<!--
-  <div id="container">
-  <ion-list>
-      <ion-list-header color="primary">
-        <ion-label class="ion-text-center" size="2">N°.</ion-label>
-        <ion-label class="ion-text-center" size="4">Nombre</ion-label>
-        <ion-label class="ion-text-center" size="2">Eliminar</ion-label>
-        <ion-label class="ion-text-center" size="4">Opciones</ion-label>
-       
-      </ion-list-header>
-
-      <ion-item *ngFor="let oficio of datos">
-        <ion-grid>
-          <ion-row>
-            <ion-col class="ion-text-center" size="2">
-              {{oficio.numero}}
-            </ion-col>
-            <ion-col class="ion-text-center" size="4">
-                {{oficio.nombre_o}}
-            </ion-col>
-            <ion-col class="ion-text-center" size="2">
-              <ion-button color="danger" (click)="onEliminar()">
-                <ion-icon name="trash"></ion-icon>
-              </ion-button>
-            </ion-col>
-            <ion-col class="ion-text-center" size="4">
-              <ion-button color="light" (click)="onDescargar()">
-                <ion-icon name="cloud-download-outline"></ion-icon>
-              </ion-button>
-              <ion-button color="light" (click)="onEnviar()">
-                <ion-icon name="share-social-outline">
-                  <ion-select placeholder="Selecciona el Depto." formControlName="departamento" (ionChange)="countryChange($event)">
-                    <ion-select-option *ngFor="let depto of select_depto" [value]="depto.id">{{depto.nombre_depto}}</ion-select-option>
-                  </ion-select>
-                </ion-icon>
-              </ion-button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
-  </ion-list>
-  
-</div>
--->

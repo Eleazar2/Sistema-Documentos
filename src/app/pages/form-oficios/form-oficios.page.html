@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="primary">
-    <ion-title class="ion-text-center">Nuevo Oficio</ion-title>
+    <ion-title class="ion-text-center"> Nuevo Oficio</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">
         <ion-icon name="log-out-outline"></ion-icon>
@@ -15,7 +15,7 @@
       <ion-list>
         <ion-item>
           <ion-label position="stacked">Número:</ion-label>
-          <ion-input type="text" [(ngModel)]="datoficio.numero" formControlName="numero" placeholder="Numero"></ion-input>
+          <ion-input type="text"  formControlName="numero" placeholder="Numero"></ion-input>
         </ion-item>
         <!--Mensaje error-->
         <ion-item *ngIf="FormOf.get('numero').errors && FormOf.get('numero').dirty">
@@ -24,7 +24,7 @@
         
         <ion-item>
           <ion-label position="stacked">Nombre:</ion-label>
-          <ion-input type="text" [(ngModel)]="datoficio.nombre_o" formControlName="nombre_o" placeholder="Nombre documento"></ion-input>
+          <ion-input type="text" formControlName="nombre_o" placeholder="Nombre documento"></ion-input>
         </ion-item>
         <!--Mensaje error-->
         <ion-item *ngIf="FormOf.get('nombre_o').errors && FormOf.get('nombre_o').dirty">
@@ -48,7 +48,7 @@
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Asunto:</ion-label>
-          <ion-input type="text" [(ngModel)]="datoficio.asunto" formControlName="asunto" placeholder="Asunto" required></ion-input>
+          <ion-input type="text" [(ngModel)]="datoficio.asunto" formControlName="asunto" placeholder="Asunto" ></ion-input>
         </ion-item>
         <!--Mensaje error-->
         <ion-item *ngIf="FormOf.get('asunto').errors && FormOf.get('asunto').dirty">
@@ -88,13 +88,10 @@
           <p class="msg-error" *ngIf="FormOf.get('remitente_depto').hasError('required')">Campo requerido !</p>
         </ion-item>
         
-      
+  
       </ion-list>
-    
-        <ion-button slot="end" color="primary" expand="block" shape="round" (click)="Generar()" >Generar</ion-button>
-        
+        <ion-button type="submit" color="primary" expand="block" shape="round" (click)="Generar()" [disabled]="!FormOf.valid" > Generar </ion-button>
 
-        
     </form>
     
 </ion-content>

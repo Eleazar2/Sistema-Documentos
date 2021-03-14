@@ -1,31 +1,38 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>Agregar espacio revisado</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form [formGroup]="agregarespacio">
+  <form [formGroup]="FormER">
     <ion-list>
       <ion-item>
         <ion-label position="stacked">Espacio revisado: </ion-label>
-        <ion-input formControlName="espacio"></ion-input>
+        <ion-input [(ngModel)]="espacio_r.espacio" formControlName="espacio"></ion-input>
       </ion-item>
+      <!--Mensaje de error-->
       <ion-item>
         <ion-label position="stacked">Hallazgo: </ion-label>
-        <ion-textarea formControlName="hallazgo" type="text" placeholder="Hallazgo"></ion-textarea>
+        <ion-textarea [(ngModel)]="espacio_r.hallazgo" formControlName="hallazgo" type="text" placeholder="Hallazgo"></ion-textarea>
       </ion-item>
+      <!--Mensaje de error-->
       <ion-item>
         <ion-label position="stacked">Atendido: </ion-label>
-            <ion-select formControlName="atendido" placeholder="Select" (click)="selectClick($event)">
+            <ion-select [(ngModel)]="espacio_r.atendido" formControlName="atendido" placeholder="Selecciona una opción">
               <ion-select-option value="SI">SI</ion-select-option>
               <ion-select-option value="NO">NO</ion-select-option> 
             </ion-select>
-          
       </ion-item>
+      <!--Mensaje de error-->
     </ion-list>
     <br>
-        <ion-button type= "submit" color="primary" expand="block" shape="round" (click)="Generar()" >Guardar</ion-button>
+        <ion-button type= "submit" color="primary" expand="block" shape="round" (click)="Generar()" [disabled]="!FormER.valid" >Guardar</ion-button>
 
   </form>
 </ion-content>

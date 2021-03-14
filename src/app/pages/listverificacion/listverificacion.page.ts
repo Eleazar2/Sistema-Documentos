@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, MenuController } from '@ionic/angular';
 import { FormListverificacionPage } from '../form-listverificacion/form-listverificacion.page';
 import { FormAgregarEspacioPage } from '../form-agregar-espacio/form-agregar-espacio.page';
+import { EspacioRevisadoI } from '../../interfaces/espacio-revisado';
+import { DataService } from '../../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listverificacion',
@@ -10,17 +13,18 @@ import { FormAgregarEspacioPage } from '../form-agregar-espacio/form-agregar-esp
 })
 export class ListverificacionPage implements OnInit {
 
-  constructor( private modalCtrl: ModalController, private menu: MenuController) { }
+  listar_esp: EspacioRevisadoI[]=[];
+
+  constructor( private modalCtrl: ModalController, private menu: MenuController, private dataServices: DataService, private router: Router) { }
 
   ngOnInit() {
+    this.listarEspacioR_V();
   }
 
  
-    openMenu1(){
-      this.menu.enable(true,'primerMenu');
-      this.menu.enable(false, 'segundoMenu');
-      this.menu.open('primerMenu');
-    }
+  irA_lista(){
+    this.router.navigate(['lista']);
+  }
   
 
 
@@ -30,4 +34,11 @@ export class ListverificacionPage implements OnInit {
     });
     modal.present();
   }
+
+  listarEspacioR_V(){
+    this.dataServices.getAllEspacioRV().subscribe( res => {
+      this.listar_esp = res;
+    },err => console.error(err));
+  }
+
 }

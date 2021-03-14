@@ -31,7 +31,7 @@ export class CompartirdocComponent implements OnInit {
   Selecdepartamento(valor: Depto){
     //console.log('item', valor);
     this.popoverCtrl.dismiss({
-      item: valor
+       valor
     });
   }
 

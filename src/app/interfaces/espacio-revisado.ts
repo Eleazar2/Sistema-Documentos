@@ -3,5 +3,5 @@ export interface EspacioRevisadoI {
     espacio:string;
     hallazgo:string;
     atendido:string;
-    lista_verificacion_id_lf:number;
+    lista_verificacion_id_lf?:number;
 }

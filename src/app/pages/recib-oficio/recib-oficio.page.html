@@ -12,10 +12,10 @@
   
 
     <ion-list #lista>
-      <ion-item-sliding *ngFor="let oficio of listarenvoficio; index as i">
+      <ion-item-sliding *ngFor="let oficio of listarenvoficio">
         <ion-item>
           <ion-label>
-            <p>{{i+1}} {{oficio.nombre_o}}</p>
+            <p>{{oficio.id_o}} {{oficio.nombre_o}}</p>
             <p>{{oficio.fecha}}</p>
             <p>{{oficio.nombred}}</p>
             <p>{{oficio.nombre_p}}{{oficio.apaterno}} {{oficio.amaterno}}</p>
